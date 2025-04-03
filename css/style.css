@@ -1,0 +1,11 @@
+#wrapper-canvas canvas {
+    max-width: 100%;
+}
+
+.profile-img img {
+    margin: 15px auto;
+    display: block;
+    width: 120px;
+    border-radius: 5%;
+  }
+  

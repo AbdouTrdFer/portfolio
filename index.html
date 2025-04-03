@@ -1,0 +1,1285 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+  <meta name="description" content="Web and Mobile Developer Portfolio showcasing projects, skills, and experience in software engineering, including e-commerce, mobile applications, and dynamic microservices scaling.">
+  <meta name="keywords" content="web developer, mobile developer, software engineer, e-commerce, Laravel, microservices, portfolio, front-end, back-end, JavaScript, PHP, React, Node.js">
+  <meta name="author" content="Abdelali Ferhan">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph Meta Tags (for social media sharing) -->
+  <meta property="og:title" content="Abdelali ferhan - Web and Mobile Developer">
+  <meta property="og:description" content="Browse my portfolio to explore my work in web and mobile development, with a focus on modern technologies like Laravel, React, and microservices scaling.">
+  <meta property="og:url" content="https://www.linkedin.com/in/abdelali-ferhan-427671280/">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="favicon_io/favicon.ico" type="image/png">
+
+    <title>Abdelali ferhan - Web and Mobile Developer Portfolio</title>
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+<!-- CSS Bootstrap -->
+  <!-- Demo styles -->
+
+    <style>
+      /* Slider personnalisé */
+.custom-slider {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider-container {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.slide-2 img{
+  width: 80%;
+  height: 80%;
+  object-fit:fill;
+  border-radius: 8px;
+}
+
+.slide-3 img{
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Boutons navigation */
+.slider-prev, 
+.slider-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(23, 136, 174, 0.8);
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  font-weight: bold;
+}
+
+.slider-prev {
+  left: 20px;
+}
+
+.slider-next {
+  right: 20px;
+}
+
+/* Pagination */
+.slider-pagination {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.slider-pagination span {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background: #b0b2c3;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-pagination span.active {
+  background: #1788ae;
+}
+.slider-pagination
+{
+  display: none !important;
+}
+.slider-pagination-5, .slider-pagination-2, .slider-pagination-3, .slider-pagination-4
+{
+  display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slide img {
+    height: 300px;
+  }
+  
+  
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #1788ae;
+      }
+
+      .swiper-pagination-bullet {
+        background-color: #23b9eb;
+      }
+    }
+    /* Styles de base pour tous les sliders */
+[class^="custom-slider"] {
+  position: relative;
+  overflow: hidden;
+}
+
+[class^="slider-container"] {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+[class^="slide"] {
+  min-width: 100%;
+}
+
+[class^="slider-pagination"] {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+[class^="slider-pagination"] span {
+  width: 12px;
+  height: 12px;
+  background: #b0b2c3;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+[class^="slider-pagination"] span.active {
+  background: #1788ae;
+}
+    </style>
+    <script src="js/matter.js" defer=""></script>
+  </head>
+  <body class="bg-[#111] text-white font-['Nunito']">
+    <section class="flex flex-col justify-between h-screen">
+      <header class="z-10 pointer-events-none flex items-center justify-between w-full px-4 mt-4 max-w-screen-xl mx-auto">
+          <div class="profile-img">
+            <img src="./ChatGPT Image Apr 2, 2025, 01_17_41 AM.png" alt="" class="img-fluid rounded-circle">
+          </div>
+      
+      </header>
+      <div class="absolute inset-0 hidden md:block" id="wrapper-canvas"></div>
+      <div class="flex -mt-10 relative">
+        <div class="w-full px-4 max-w-screen-xl mx-auto">
+          
+          <div class="relative ml-4 md:ml-12">
+            <h1 class="pointer-events-none text-4xl md:text-[64px] font-['Spartan'] mr-12">
+              Abdelali Ferhan
+            </h1>
+            <p class="pointer-events-none font-['Merriweather'] italic my-4 md:my-8">
+              Full Stack Developer
+            </p>
+           
+            
+            <a class="bg-[#4595eb] py-2 px-5 rounded font-extrabold bg-gradient-to-l from-[#1595b6] to-[#1f2667e6] relative hover:scale-110 ease-in-out duration-100 group" href="./Abdelali-FERHAN-ResumeEn-1.pdf" target="_blank">Check out my Resume</a>
+
+          </div>
+        </div>
+
+        <ul class="ml-auto space-y-6 text-[#b0b2c3] absolute right-8">
+          <li>
+            <a href="https://www.linkedin.com/in/abdelali-ferhan-427671280/" target="_blank">
+              <svg class="w-7 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"></path>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/212770247045?text=Hi, How are you?" target="_blank">
+              <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="whatsapp" class="svg-inline--fa fa-whatsapp fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/abdelali_____ferhan?igsh=MWRjenhyZzkzbTEzdQ==">
+              <svg class="w-7 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:ferhanabdelali@gmail.com" target="_blank">
+              <svg class="w-7 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="currentColor" d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="relative self-center after:content-[''] after:absolute after:w-[2px] after:h-5 after:bg-[#444] after:left-1/2 after:-translate-x-1/2 after:top-[100px]">
+        <button class="bg-[#4595eb] py-2 px-5 rounded font-extrabold bg-gradient-to-l from-[#1595b6] to-[#1f2667e6] relative hover:scale-110 ease-in-out duration-100 group mb-20">
+          Latest Works
+
+          <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" width="44" height="44" viewBox="0 0 100 100" class="absolute rotate-90 left-1/2 -translate-x-1/2 top-11 group-hover:top-12 ease-in-out duration-100">
+            <g transform="translate(0,-952.36218)">
+              <path style="
+                  text-indent: 0;
+                  text-transform: none;
+                  direction: ltr;
+                  block-progression: tb;
+                  baseline-shift: baseline;
+                  color: #000000;
+                  enable-background: accumulate;
+                " d="m 88.999835,1002.3621 c 0,-0.4628 -0.2799,-1.0773 -0.5639,-1.3755 l -15.9997,-17.00026 c -0.747,-0.7723 -1.9572,-0.8618 -2.8281,-0.078 -0.7786,0.7007 -0.798,2.0673 -0.078,2.8282 l 12.8435,13.62516 -69.37347,0 c -1.1046,0 -2,0.8954 -2,2 0,1.1046 0.8954,2.0001 2,2.0001 l 69.37347,0 -12.8435,13.6252 c -0.7199,0.7608 -0.6688,2.0938 0.078,2.8281 0.7885,0.7752 2.0925,0.7062 2.8281,-0.078 l 15.9997,-17.0002 c 0.4701,-0.4611 0.556,-0.9052 0.5639,-1.3748 z" fill="#fff" fill-opacity="1" stroke="white" stroke-width="2" marker="none" visibility="visible" display="inline" overflow="visible"></path>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </section>
+    <section class="max-w-screen-xl mx-auto px-4 relative pb-8 sm:pb-16">
+      <h2 class="text-3xl sm:text-[40px] bg-[#111] relative z-10 font-bold px-4 py-2 w-max mx-auto text-center text-[#1788ae] sm:border-b-2 border-[#1788ae]">
+        Latest Works
+      </h2>
+      <div class="flex flex-col sm:flex-row gap-4 mt-8 sm:gap-[80px] items-center sm:mt-20 relative">
+        <div class="h-[1px] left-1/4 right-1/2 bg-[#1788ae] absolute top-1/2 hidden sm:block"></div>
+        <div class="w-4 h-4 rounded-full border-[3px] border-[#459bd5] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block"></div>
+        <a href="#" class="flex w-full relative justify-center sm:justify-start">
+          <div class="custom-slider">
+            <div class="slider-container">
+              <!-- Slide 1 -->
+              <div class="slide">
+                <img src="./ordering_system/home.png" alt="Projet 3">
+                <div class="slide-content">
+                  <h3>homepage</h3>
+                </div>
+              </div>
+              
+            
+              <div class="slide">
+                <img src="./ordering_system/menu.png" width="100" height="100" alt="Projet 3">
+                <div class="slide-content">
+                  <h3>desktop menu</h3>
+                </div>
+              </div>
+              <div class="slide">
+                <img src="./ordering_system/panier.jpeg" alt="Projet 3">
+                <div class="slide-content">
+                  <h3>panier</h3>
+                </div>
+              </div>
+              <div class="slide">
+                <img src="./ordering_system/dash.png" alt="Projet 3">
+                <div class="slide-content">
+                  <h3>dashboard admin</h3>
+                </div>
+              </div>
+              <div class="slide">
+                <img src="./ordering_system/dash_table.png" alt="Projet 3">
+                <div class="slide-content">
+                  <h3>dashboard admin</h3>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Contrôles -->
+            <button hidden class="slider-prev">&lt;</button>
+            <button hidden class="slider-next">&gt;</button>
+            
+            <!-- Pagination -->
+            <div hidden class="slider-pagination"></div>
+          </div>
+        </a>
+
+        <div class="w-full">
+          <h3 class="text-[#459bd5] font-bold text-2xl md:text-4xl">
+            LasOrder
+          </h3>
+          <span class="text-[#459bd5] text-base md:text-lg">local Plateforme for ordering system into a restaurant</span>
+          <p class="text-justify text-sm md:text-base mt-2">
+            -Main features:
+•Client interface with interactive menu via QR code.
+•Food categories: Fast food, drinks, desserts.
+•Menu management for administrators (addition,
+modification, deletion of articles).
+•Admin dashboard with tracking
+orders and sales statistics.
+          </p>
+
+          <ul class="flex flex-wrap gap-2 mt-2">
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #react.js
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Chart.js
+            </li>
+           
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Laravel
+            </li>
+            
+            
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #css
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #javascript
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #AJAX
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #figma
+            </li>
+            
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Serveur local avec XAMPP / Docker
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Responsiveness
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative">
+        <div class="order-2 sm:order-1 w-full">
+          <h3 class="text-[#47afa1] font-bold text-2xl md:text-4xl">
+            📌  Système de Scaling Dynamique Horizontale avec Nginx et Docker
+          </h3>
+          <span class="text-[#47afa1] text-base md:text-lg"></span>
+          <p class="text-justify text-sm md:text-base mt-2">
+            This project implements a dynamic load balancing system for microservices 
+            using Nginx and Docker. Three Flask microservices are created and automatically
+             balanced via Nginx, enabling efficient request distribution across multiple instances. 
+             The goal is to simulate a scalable environment where services can be replicated dynamically
+              to handle high traffic loads.
+
+
+          </p>
+
+          <ul class="flex flex-wrap gap-2 mt-2">
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Docker & Docker Compose → Containerization & orchestration
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Flask → Microservices development
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Nginx → Load balancing
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Python → Backend development
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Gunicorn → Efficient WSGI server for Flask
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Linux & Shell → Deployment commands
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #docker ps commande
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #curl ->request
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              # Horizontal Scalability
+            </li>
+          
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Chart.js
+            </li>  
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #AJAX
+            </li>          
+            
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #bootstrap
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #javascript
+            </li>
+          </ul>
+        </div>
+        <div class="h-[1px] left-1/2 right-1/4 bg-[#1788ae] absolute top-1/2 hidden sm:block"></div>
+        <div class="w-4 h-4 rounded-full border-[3px] border-[#47afa1] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block"></div>
+        <a href="#" class="order-1 sm:order-2 flex w-full relative justify-center sm:justify-start">
+          <div class="custom-slider-4">
+            <div class="slider-container-4">
+              <!-- Slide 1 -->
+              <div class="slide-4 active">
+                <img src="./Dynamic-Microservice-Scaler/docker.png" alt="Projet 1">
+                <div class="slide-content-4">
+                  <h3>microsoervices into docker</h3>
+                </div>
+              </div>
+              
+              <!-- Slide 2 -->
+              <div class="slide-4">
+                <img src="./Dynamic-Microservice-Scaler/image_docker.png" alt="Projet 2">
+                <div class="slide-content-4">
+                  <h3>images of containers</h3>
+                </div>
+              </div>
+
+              <div class="slide-4">
+                <img src="./Dynamic-Microservice-Scaler/dASH_1.png" alt="Projet 3">
+                <div class="slide-content-4">
+                  <h3>ram usage</h3>
+                </div>
+              </div>
+              
+              <!-- Slide 2 -->
+              <div class="slide-4">
+                <img src="./Dynamic-Microservice-Scaler/Dash_2.png" alt="Projet 4">
+                <div class="slide-content-4">
+                  <h3>cpu usage</h3>
+                </div>
+              </div>
+              <div class="slide-4">
+                <img src="./Dynamic-Microservice-Scaler/dash_3.png" alt="Projet 5">
+                <div class="slide-content-4">
+                  <h3>top processus</h3>
+                </div>
+              </div>
+              
+              <!-- Slide 2 -->
+              <div class="slide-4">
+                <img src="./Dynamic-Microservice-Scaler/dash_4.png" alt="Projet 6">
+                <div class="slide-content-4">
+                  <h3>all containers</h3>
+                </div>
+              </div>
+              <div class="slide-4">
+                <img src="./Dynamic-Microservice-Scaler/email.png" alt="Projet 7">
+                <div class="slide-content-4">
+                  <h3>alert Email </h3>
+                </div>
+              </div>
+              <div class="slide-4">
+                <img src="./Dynamic-Microservice-Scaler/alertEmail.png" alt="Projet 8">
+                <div class="slide-content-4">
+                  <h3>alert Email </h3>
+                </div>
+              </div>
+            
+             
+            </div>
+            
+            <!-- Contrôles -->
+            <button hidden class="slider-prev-4">&lt;</button>
+            <button hidden class="slider-next-4">&gt;</button>
+            
+            <!-- Pagination -->
+            <div hidden class="slider-pagination-4"></div>
+          </div>
+        </a>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative">
+        <div class="h-[1px] left-1/4 right-1/2 bg-[#1788ae] absolute top-1/2 hidden sm:block"></div>
+        <div class="w-4 h-4 rounded-full border-[3px] border-[#fc815c] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block"></div>
+        <a href="#" class="flex w-full relative justify-center sm:justify-start">
+          <div class="custom-slider-3">
+            <div class="slider-container-3">
+              <!-- Slide 1 -->
+              <div class="slide-3 active">
+                <img src="./gestion_stagiares/dash_stagiaire.png" alt="Projet 1">
+                <div class="slide-content-3">
+                  <h3>Stagiaire</h3>
+                </div>
+              </div>
+              
+              <!-- Slide 2 -->
+              <div class="slide-3">
+                <img src="./gestion_stagiares/profile.png" alt="Projet 2">
+                <div class="slide-content-3">
+                  <h3>Stagiaire</h3>
+                </div>
+              </div>
+              <div class="slide-3">
+                <img src="./gestion_stagiares/profile2.png" alt="Projet 2">
+                <div class="slide-content-3">
+                  <h3>Stagiaire</h3>
+                </div>
+              </div>
+              <div class="slide-3">
+                <img src="./gestion_stagiares/dash_assi.png" alt="Projet 2">
+                <div class="slide-content-3">
+                  <h3>Stagiaire</h3>
+                </div>
+              </div>
+              <div class="slide-3">
+                <img src="./gestion_stagiares/rendredevoir.png" alt="Projet 2">
+                <div class="slide-content-3">
+                  <h3>Stagiaire</h3>
+                </div>
+              </div>
+              <div class="slide-3">
+                <img src="./gestion_stagiares/dash_encadrant.png" alt="Projet 2">
+                <div class="slide-content-3">
+                  <h3>Encadrant</h3>
+                </div>
+              </div>
+              <div class="slide-3">
+                <img src="./gestion_stagiares/addEvent.png" alt="Projet 2">
+                <div class="slide-content-3">
+                  <h3>Encadrant</h3>
+                </div>
+              </div>
+              <div class="slide-3">
+                <img src="./gestion_stagiares/affectationNote.png" alt="Projet 2">
+                <div class="slide-content-3">
+                  <h3>Encadrant</h3>
+                </div>
+              </div>
+              <div class="slide-3">
+                <img src="./gestion_stagiares/newassignement.png" alt="Projet 2">
+                <div class="slide-content-3">
+                  <h3>Encadrant</h3>
+                </div>
+              </div>
+              <div class="slide-3">
+                <img src="./gestion_stagiares/dASH_ADMIN.png" alt="Projet 2">
+                <div class="slide-content-3">
+                  <h3>Admin</h3>
+                </div>
+              </div>
+              <div class="slide-3">
+                <img src="./gestion_stagiares/AJOUT_NEW_STAGIAIRE.png" alt="Projet 2">
+                <div class="slide-content-3">
+                  <h3>Admin</h3>
+                </div>
+              </div>
+             
+            </div>
+            
+            <!-- Contrôles -->
+            <button hidden class="slider-prev-3">&lt;</button>
+            <button hidden class="slider-next-3">&gt;</button>
+            
+            <!-- Pagination -->
+            <div hidden class="slider-pagination-3"></div>
+          </div>
+        </a>
+
+        <div class="w-full">
+          <h3 class="text-[#fc815c] font-bold text-2xl md:text-4xl">
+            internship management
+          </h3>
+          <span class="text-[#fc815c] text-base md:text-lg"></span>
+          <p class="text-justify text-sm md:text-base mt-2">
+            Creation of intern management web application.
+The intern management web application project aims to meet the specific needs of monitoring and management of internships within the Polytechnic School of Engineering. The accounts for supervisors and interns are added by the administrator, which allows management centralized and secure access. At the end of the internship, the intern can attach his report, and 
+the supervisor can consult this report and evaluate the work using a rating system. 
+The administrator also has the possibility of generating certificates for completed internships, integrating a unique QR code which, once scanned, directly displays the trainee's certificate concerned. Internship subjects are assigned by supervisors, while the administrator manages the assignment of trainees to supervisors.
+          </p>
+
+          <ul class="flex flex-wrap gap-2 mt-2">
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #react.js
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #PHP
+            </li>
+            
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #css
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #javascript
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #figma
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Responsive Web Design
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative">
+        <div class="order-2 sm:order-1 w-full">
+          <h3 class="text-[#47afa1] font-bold text-2xl md:text-4xl">
+E-commerce Plateforme          </h3>
+          <span class="text-[#47afa1] text-base md:text-lg"></span>
+          <p class="text-justify text-sm md:text-base mt-2">
+            User-Friendly Navigation: Allow users to browse through a variety of products easily.
+            Seamless Ordering & Account Management: Enable customers to place orders and manage their accounts efficiently.
+            Intuitive & Attractive UI: Design a visually appealing and easy-to-use interface for a pleasant shopping experience.
+            Automated Order & Inventory Management: Reduce operational costs by automating stock tracking, order processing, and customer management.
+          </p>
+
+          <ul class="flex flex-wrap gap-2 mt-2">
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Bootstrap
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Tailwind CSS
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #laravel 10
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #chart.js
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #jQuery
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #AJAX
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Composer
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #responsive UI
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #css
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #javascript
+            </li>
+
+          </ul>
+        </div>
+        <div class="h-[1px] left-1/2 right-1/4 bg-[#1788ae] absolute top-1/2 hidden sm:block"></div>
+        <div class="w-4 h-4 rounded-full border-[3px] border-[#47afa1] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block"></div>
+        <a href="#" class="order-1 sm:order-2 flex w-full relative justify-center sm:justify-start">
+          <div class="custom-slider-2">
+            <div class="slider-container-2">
+              <!-- Slide 1 -->
+              <div class="slide-2 active">
+                <img src="./e-commerce/home.png" alt="Projet 1">
+                <div class="slide-content-2">
+                </div>
+              </div>
+              
+              <!-- Slide 2 -->
+              <div class="slide-2">
+                <img src="./e-commerce/detaille_product.png" alt="Projet 2">
+                <div class="slide-content-2">
+                </div>
+              </div>
+              <div class="slide-2">
+                <img src="./e-commerce/category.png" alt="Projet 3">
+                <div class="slide-content-2">
+                </div>
+              </div>
+              <div class="slide-2">
+                <img src="./e-commerce/panier.png" alt="Projet 4">
+                <div class="slide-content-2">
+                 
+                </div>
+              </div>
+
+              <div class="slide-2">
+                <img src="./e-commerce/facture.png" alt="Projet 5">
+                <div class="slide-content-2">
+                </div>
+              </div>
+              <div class="slide-2">
+                <img src="./e-commerce/ajoutProduits.png" alt="Projet 6">
+                <div class="slide-content-2">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Contrôles -->
+            <button hidden class="slider-prev-2">&lt;</button>
+            <button hidden class="slider-next-2">&gt;</button>
+            
+            <!-- Pagination -->
+            <div hidden class="slider-pagination-2"></div>
+          </div>
+        </a>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative">
+        <div class="h-[1px] left-1/4 right-1/2 bg-[#1788ae] absolute top-1/2 hidden sm:block"></div>
+        <div class="w-4 h-4 rounded-full border-[3px] border-[#fc815c] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block"></div>
+        <a href="#" class="flex w-full relative justify-center sm:justify-start">
+          <div class="custom-slider-5">
+            <div class="slider-container-5">
+              <!-- Slide 1 -->
+              <div class="slide-5 active">
+                <img src="./e-learning/login.jpeg" alt="Projet 1">
+                <div class="slide-content-5">
+                </div>
+              </div>
+              
+              <!-- Slide 2 -->
+              <div class="slide-5">
+                <img src="./e-learning/dash_admin.jpeg" alt="Projet 2">
+                <div class="slide-content-5">
+                
+                </div>
+              </div>
+              <div class="slide-5">
+                <img src="./e-learning/dash_teacher.jpeg" alt="Projet 3">
+                <div class="slide-content-5">
+                
+                </div>
+              </div>
+              <div class="slide-5">
+                <img src="./e-learning/courses.jpeg" alt="Projet 4">
+                <div class="slide-content-5">
+                
+                </div>
+              </div>
+              <div class="slide-5">
+                <img src="./e-learning/exams.jpeg" alt="Projet 5">
+                <div class="slide-content-5">
+                
+                </div>
+              </div>
+              <div class="slide-5">
+                <img src="./e-learning/quiz.jpeg" alt="Projet 6">
+                <div class="slide-content-5">
+                
+                </div>
+              </div>
+              <div class="slide-5">
+                <img src="./e-learning/createquiz.jpeg" alt="Projet 7">
+                <div class="slide-content-5">
+                
+                </div>
+              </div>
+              <div class="slide-5">
+                <img src="./e-learning/infoquiz.jpeg" alt="Projet 8">
+                <div class="slide-content-5">
+                
+                </div>
+              </div>
+              <div class="slide-5">
+                <img src="./e-learning/passquiz.jpeg" alt="Projet 9">
+                <div class="slide-content-5">
+                
+                </div>
+              </div>
+              
+            </div>
+            
+            <!-- Contrôles -->
+            <button hidden class="slider-prev-5">&lt;</button>
+            <button hidden class="slider-next-5">&gt;</button>
+            
+            <!-- Pagination -->
+            <div hidden class="slider-pagination-5"></div>
+          </div>
+        </a>
+
+        <div class="w-full">
+          <h3 class="text-[#fc815c] font-bold text-2xl md:text-4xl">
+            E-Learning Platform
+          </h3>
+          <span class="text-[#fc815c] text-base md:text-lg">(with Laravel 9)</span>
+          <p class="text-justify text-sm md:text-base mt-2">
+            I developed an online learning platform using Laravel 9, aimed at 
+            managing teaching operations and student learning. The platform includes 
+            differentiated user roles for teachers and students, with unique functionalities
+             for each.
+
+
+          </p>
+          
+          <span class="text-[#fc815c] text-base md:text-lg">Key Features:</span>
+          
+            <p> User Management: Role-based access for teachers and students.</p> 
+
+            <p> Student Absence Management: Track absences by group.</p> 
+            <span class="text-[#fc815c] text-base md:text-lg">Teacher Features:</span>
+
+            <p> Share courses and exams.</p> 
+
+            <p></p>  Publish articles with HTML and images.</p> 
+
+            <p> Create multiple-choice quizzes (QCM).</p> 
+
+            <p> Communicate with students through messaging.</p> 
+            <span class="text-[#fc815c] text-base md:text-lg">Student Features:</span>
+
+            <p> Submit comments and responses to MCQs.</p> 
+
+            <p> Search and access courses and exams by subject.</p> 
+          
+
+          <ul class="flex flex-wrap gap-2 mt-2">
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Node.js + Express.js (Gestion des quiz, WebSockets)
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #Laravel 9
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #MVC Architecture
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #bootstrap
+            </li>
+           
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #mongoDB
+            </li>
+            
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #css
+            </li>
+            <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+              #javascript
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+      <div class="w-[2px] hidden sm:block bg-[#1788ae] absolute top-0 bottom-0 left-1/2 -translate-x-1/2"></div>
+    </section>
+    <section class="max-w-screen-xl mx-auto pb-12">
+      <h2 class="text-3xl sm:text-[40px] bg-[#111] sm:w-max relative z-10 font-bold px-4 py-2 mx-auto text-center text-[#1788ae] sm:border-2 border-[#1788ae] rounded-md">
+        Other Projects – Ongoing Improvements 🔄
+
+      </h2>
+      </section>
+
+    <section class="max-w-screen-xl mx-auto pb-12">
+      <h2 class="text-3xl sm:text-[40px] bg-[#111] sm:w-max relative z-10 font-bold px-4 py-2 mx-auto text-center text-[#1788ae] sm:border-2 border-[#1788ae] rounded-md">
+        What my clients are saying?
+      </h2>
+      <div class="swiper mySwiper !py-14">
+        <div class="swiper-wrapper items-center">
+          <div class="swiper-slide px-4">
+            <div class="flex flex-col md:flex-row w-full md:max-w-[800px] items-center rounded-lg p-9 shadow-[0_0px_50px_rgba(59,130,246,0.6)] cursor-grab">
+              <img class="shrink-0 w-[120px] h-[120px] md:w-[180px] md:h-[180px] rounded-full drop-shadow-[0_0px_80px_rgba(59,130,246,1)]" src="/assets/images/saatvik.webp" alt="testimonial 3">
+              <div class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative">
+                <p class="text-sm md:text-base mb-2">
+                  “for Qr code ordering system ,Excellent work! The project was delivered on time with great attention to detail. Highly recommend”
+                </p>
+                <h2 class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl">
+                  mouad
+                </h2>
+                <h5 class="text-right text-[#459bd5] text-base md:text-lg">
+client,Las vegas                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide px-4">
+            <div class="flex flex-col md:flex-row max-w-[800px] items-center rounded-lg p-9 shadow-[0_0px_50px_rgba(59,130,246,0.6)] cursor-grab">
+              <img class="shrink-0 w-[120px] h-[120px] md:w-[180px] md:h-[180px] rounded-full drop-shadow-[0_0px_80px_rgba(59,130,246,1)]" src="/assets/images/kira.webp" alt="testimonial 3">
+              <div class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative">
+                <p class="text-sm md:text-base mb-2">
+                  “An outstanding solution for managing microservices efficiently! 
+                  The dynamic scaling and real-time monitoring system significantly 
+                  improved our resource management. The integration of Docker, Flask, 
+                  and Nginx for load balancing was seamless. ”
+                </p>
+                <h2 class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl">
+                  bilal amrani
+                </h2>
+                <h5 class="text-right text-[#459bd5] text-base md:text-lg">
+                  student 
+                </h5>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <section class="max-w-screen-xl mx-auto px-4 pb-12">
+      <h2 class="text-3xl sm:text-[40px] bg-[#111] relative z-10 font-bold px-4 py-2 w-max mx-auto text-center text-[#1788ae] sm:border-2 border-[#1788ae] rounded-md">
+        Let's Connect
+      </h2>
+      <div class="flex flex-col md:flex-row items-center mt-10">
+        <div class="w-full">
+          <img src="images/contact-me.svg" alt="phone">
+        </div>
+        <form class="w-full" name="contactUS" netlify="">
+          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+          <div class="relative mb-4">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"></path>
+              </svg>
+            </div>
+            <input type="text" id="name" name="name" class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Enter your name">
+          </div>
+          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
+          <div class="relative mb-4">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"></path>
+                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"></path>
+              </svg>
+            </div>
+            <input type="text" id="email" name="email" class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="name@gmail.com">
+          </div>
+          <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message</label>
+          <div class="relative mb-4">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"></div>
+            <textarea id="message" name="message" rows="8" class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"></textarea>
+          </div>
+          <button type="submit" class="w-full text-white bg-[#1788ae] hover:bg-[#1280a4] focus:ring-4 focus:ring-[#4489a0] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">
+            Send
+          </button>
+        </form>
+      </div>
+    </section>
+    <footer class="flex flex-col items-center pb-10">
+      <p class="text-xs text-gray-300">Ferhan © 2024</p>
+      <div class="black-logo my-4">
+        <div class="profile-img">
+          <img src="./ChatGPT Image Apr 2, 2025, 01_17_41 AM.png" alt="" class="img-fluid rounded-circle">
+        </div>
+    
+      </div>
+      <ul class="mx-auto flex items-center justify-center gap-6 text-[#b0b2c3]">
+        <li>
+          <a href="https://www.linkedin.com/in/abdelali-ferhan-427671280/" target="_blank">
+            <svg class="w-5 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="currentColor" d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"></path>
+            </svg>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https://www.instagram.com/abdelali_____ferhan?igsh=MWRjenhyZzkzbTEzdQ==">
+            <svg class="w-5 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:ferhanabdelali@gmail.com" target="_blank">
+            <svg class="w-5 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="currentColor" d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"></path>
+            </svg>
+          </a>
+        </li>
+        
+      </ul>
+    </footer>
+
+    <script src="js/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.querySelector('.slider-container');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.slider-prev');
+        const nextBtn = document.querySelector('.slider-next');
+        const pagination = document.querySelector('.slider-pagination');
+        
+        let currentIndex = 0;
+        
+        // Créer la pagination
+        slides.forEach((_, index) => {
+          const dot = document.createElement('span');
+          dot.addEventListener('click', () => goToSlide(index));
+          pagination.appendChild(dot);
+        });
+        
+        const dots = document.querySelectorAll('.slider-pagination span');
+        dots[0].classList.add('active');
+        
+        // Navigation
+        function updateSlider() {
+          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+          
+          // Mettre à jour la pagination
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+          });
+        }
+        
+        function goToSlide(index) {
+          currentIndex = index;
+          updateSlider();
+        }
+        
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % slides.length;
+          updateSlider();
+        }
+        
+        function prevSlide() {
+          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+          updateSlider();
+        }
+        
+        // Événements
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Auto-play optionnel (désactivable)
+        let autoplay = setInterval(nextSlide, 2000);
+        
+        slider.addEventListener('mouseenter', () => clearInterval(autoplay));
+        slider.addEventListener('mouseleave', () => {
+          autoplay = setInterval(nextSlide, 2000);
+        });
+      });
+      //3
+      document.addEventListener('DOMContentLoaded', function() {
+  const slider3 = document.querySelector('.slider-container-3');
+  const slides3 = document.querySelectorAll('.slide-3');
+  const prevBtn3 = document.querySelector('.slider-prev-3');
+  const nextBtn3 = document.querySelector('.slider-next-3');
+  const pagination3 = document.querySelector('.slider-pagination-3');
+  
+  let currentIndex3 = 0;
+  
+  slides3.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToSlide3(index);
+    });
+    pagination3.appendChild(dot);
+  });
+  
+  const dots3 = pagination3.querySelectorAll('span');
+  dots3[0].classList.add('active');
+  
+  function updateSlider3() {
+    slider3.style.transform = `translateX(-${currentIndex3 * 100}%)`;
+    dots3.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex3));
+  }
+  
+  function goToSlide3(index) {
+    currentIndex3 = index;
+    updateSlider3();
+  }
+  
+  function nextSlide3() {
+    currentIndex3 = (currentIndex3 + 1) % slides3.length;
+    updateSlider3();
+  }
+  
+  function prevSlide3() {
+    currentIndex3 = (currentIndex3 - 1 + slides3.length) % slides3.length;
+    updateSlider3();
+  }
+  
+  if (nextBtn3) nextBtn3.addEventListener('click', nextSlide3);
+  if (prevBtn3) prevBtn3.addEventListener('click', prevSlide3);
+  
+  let autoplay3 = setInterval(nextSlide3, 4000);
+  slider3.addEventListener('mouseenter', () => clearInterval(autoplay3));
+  slider3.addEventListener('mouseleave', () => {
+    autoplay3 = setInterval(nextSlide3, 4000);
+  });
+});
+
+//2
+document.addEventListener('DOMContentLoaded', function() {
+  const slider2 = document.querySelector('.slider-container-2');
+  const slides2 = document.querySelectorAll('.slide-2');
+  const prevBtn2 = document.querySelector('.slider-prev-2');
+  const nextBtn2 = document.querySelector('.slider-next-2');
+  const pagination2 = document.querySelector('.slider-pagination-2');
+  
+  let currentIndex2 = 0;
+  
+  // Créer la pagination
+  slides2.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToSlide2(index);
+    });
+    pagination2.appendChild(dot);
+  });
+  
+  const dots2 = pagination2.querySelectorAll('span');
+  dots2[0].classList.add('active');
+  
+  function updateSlider2() {
+    slider2.style.transform = `translateX(-${currentIndex2 * 100}%)`;
+    dots2.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex2));
+  }
+  
+  function goToSlide2(index) {
+    currentIndex2 = index;
+    updateSlider2();
+  }
+  
+  function nextSlide2() {
+    currentIndex2 = (currentIndex2 + 1) % slides2.length;
+    updateSlider2();
+  }
+  
+  function prevSlide2() {
+    currentIndex2 = (currentIndex2 - 1 + slides2.length) % slides2.length;
+    updateSlider2();
+  }
+  
+  if (nextBtn2) nextBtn2.addEventListener('click', nextSlide2);
+  if (prevBtn2) prevBtn2.addEventListener('click', prevSlide2);
+  
+  let autoplay2 = setInterval(nextSlide2, 2000);
+  slider2.addEventListener('mouseenter', () => clearInterval(autoplay2));
+  slider2.addEventListener('mouseleave', () => {
+    autoplay2 = setInterval(nextSlide2, 2000);
+  });
+});
+
+//4
+document.addEventListener('DOMContentLoaded', function() {
+  const slider4 = document.querySelector('.slider-container-4');
+  const slides4 = document.querySelectorAll('.slide-4');
+  const prevBtn4 = document.querySelector('.slider-prev-4');
+  const nextBtn4 = document.querySelector('.slider-next-4');
+  const pagination4 = document.querySelector('.slider-pagination-4');
+  
+  let currentIndex4 = 0;
+  
+  slides4.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToSlide4(index);
+    });
+    pagination4.appendChild(dot);
+  });
+  
+  const dots4 = pagination4.querySelectorAll('span');
+  dots4[0].classList.add('active');
+  
+  function updateSlider4() {
+    slider4.style.transform = `translateX(-${currentIndex4 * 100}%)`;
+    dots4.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex4));
+  }
+  
+  function goToSlide4(index) {
+    currentIndex4 = index;
+    updateSlider4();
+  }
+  
+  function nextSlide4() {
+    currentIndex4 = (currentIndex4 + 1) % slides4.length;
+    updateSlider4();
+  }
+  
+  function prevSlide4() {
+    currentIndex4 = (currentIndex4 - 1 + slides4.length) % slides4.length;
+    updateSlider4();
+  }
+  
+  if (nextBtn4) nextBtn4.addEventListener('click', nextSlide4);
+  if (prevBtn4) prevBtn4.addEventListener('click', prevSlide4);
+  
+  let autoplay4 = setInterval(nextSlide4, 2500);
+  slider4.addEventListener('mouseenter', () => clearInterval(autoplay4));
+  slider4.addEventListener('mouseleave', () => {
+    autoplay4 = setInterval(nextSlide4, 2500);
+  });
+});
+
+//5
+document.addEventListener('DOMContentLoaded', function() {
+  const slider5 = document.querySelector('.slider-container-5');
+  const slides5 = document.querySelectorAll('.slide-5');
+  const prevBtn5 = document.querySelector('.slider-prev-5');
+  const nextBtn5 = document.querySelector('.slider-next-5');
+  const pagination5 = document.querySelector('.slider-pagination-5');
+  
+  let currentIndex5 = 0;
+  
+  slides5.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToSlide5(index);
+    });
+    pagination5.appendChild(dot);
+  });
+  
+  const dots5 = pagination5.querySelectorAll('span');
+  dots5[0].classList.add('active');
+  
+  function updateSlider5() {
+    slider5.style.transform = `translateX(-${currentIndex5 * 100}%)`;
+    dots5.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex5));
+  }
+  
+  function goToSlide5(index) {
+    currentIndex5 = index;
+    updateSlider5();
+  }
+  
+  function nextSlide5() {
+    currentIndex5 = (currentIndex5 + 1) % slides5.length;
+    updateSlider5();
+  }
+  
+  function prevSlide5() {
+    currentIndex5 = (currentIndex5 - 1 + slides5.length) % slides5.length;
+    updateSlider5();
+  }
+  
+  if (nextBtn5) nextBtn5.addEventListener('click', nextSlide5);
+  if (prevBtn5) prevBtn5.addEventListener('click', prevSlide5);
+  
+  let autoplay5 = setInterval(nextSlide5, 2000);
+  slider5.addEventListener('mouseenter', () => clearInterval(autoplay5));
+  slider5.addEventListener('mouseleave', () => {
+    autoplay5 = setInterval(nextSlide5, 2000);
+  });
+});
+      </script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+    <script src="/disable.js"> </script>
+    <script src="js/matter.min.js"></script>
+    <script src="https://cdn/jsdelivr.net/npm/matter-wrap@0.2.0/build/matter-wrap.min.js"></script>
+    <script src="js/matter-attractors.min.js"></script>
+  
+
+</body></html>
