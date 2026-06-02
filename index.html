@@ -958,7 +958,7 @@
             transform: scale(1.15)
         }
         
-        flex: 0 0 auto
+        flex: 0 0 auto;
     }
     .tag:hover {
         border-color: var(--accent);
@@ -2292,7 +2292,7 @@
             cat: "Data & IA",
             ico: '<path d="M12 2a4 4 0 00-4 4 4 4 0 00-2 7 4 4 0 003 5 4 4 0 006 0 4 4 0 003-5 4 4 0 00-2-7 4 4 0 00-4-4z"/><path d="M12 8v8M9 11h6"/>',
             lead: ["Machine Learning"],
-            items: ["Deep Learning", "Reinforcement Learning", "Power BI"]
+            items: ["Deep Learning", "Reinforcement Learning", "Power BI", "ETL"]
         }, {
             cat: "Méthodologies & Outils",
             ico: '<path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1.4" fill="currentColor"/><circle cx="14" cy="12" r="1.4" fill="currentColor"/><circle cx="10" cy="17" r="1.4" fill="currentColor"/>',
@@ -2328,6 +2328,15 @@
             stack: ["Spring Boot", "Angular", "FastAPI", "Docker", "CI/CD", "Traefik"],
             github: "https://github.com/abdoutrdfer",
             images: ["./recognition_facial/1.png", "./recognition_facial/2.png", "./recognition_facial/3.png", "./recognition_facial/4.png", "./recognition_facial/5.png"]
+        }, {
+            title: "Intelligence Marchés Financiers — Power BI & IA 2020-2024",
+            cat: ["ia"],
+            catLabel: "BI & AI Analysis (Académique)",
+            year: "2026",
+            desc: "Pipeline BI analysant 120 000 transactions financières. Dashboard interactif de 4 pages, modélisation Star Schema, ETL complexe (Power Query) et évaluation critique d'un modèle IA de trading.",
+            stack: ["Power BI", "DAX", "Power Query", "Star Schema", "ETL"],
+            github: "https://github.com/abdoutrdfer",
+            images: ["./Project_Bi/1.png", "./Project_Bi/2.png", "./Project_Bi/3.png", "./Project_Bi/4.png"]
         }, {
             title: "ArdMarket - Location de Terres Agricoles",
             cat: ["fullstack", "ia", "hackathon"],
@@ -2426,23 +2435,29 @@
             images: []
         }];
         const EXPERIENCE = [{
+            when: "Mai 2026 – Présent",
+            title: "Analyste SIG – Freelance",
+            org: "Données géospatiales (sur site)",
+            points: ["Collecte, nettoyage et structuration de données géospatiales (ArcGIS Pro) en jeux de données exploitables.", "Planification d'itinéraires et analyse spatiale."],
+            stack: ["ArcGIS Pro", "SIG", "Data"]
+        }, {
             when: "2024 – Présent",
             title: "Développeur Full-Stack – Freelance",
             org: "Clients variés (e-commerce, e-learning)",
             points: ["Conçu et développé un système de commande basé sur QR Code (Laravel, jQuery, Chart.js, Docker) avec tableau de bord analytique.", "Plateforme e-learning complète : comptes, quiz, cours et messagerie (Laravel 9, Node.js)."],
             stack: ["Laravel", "React", "Docker", "Node.js"]
         }, {
+            when: "2024",
+            title: "Développeur Python – Freelance",
+            org: "Extraction de données météorologiques",
+            points: ["Développement d’un script automatisé pour l’extraction de données météorologiques depuis ventusky.com, simulant des interactions utilisateur avec Selenium.", "Données collectées : température, vent, humidité, précipitations (jour actuel, 3 jours passés et 3 jours à venir).", "Export structuré des données au format Excel/CSV."],
+            stack: ["Python", "Selenium", "Pandas", "WebDriverManager"]
+        }, {
             when: "Avr. – Juin 2024",
             title: "Développeur PHP – Stage technique",
             org: "École Polytechnique des Génies, Fès",
             points: ["Application web de gestion des stagiaires avec génération de certificats à QR code.", "Travail en équipe sur le suivi encadrants / stagiaires."],
             stack: ["PHP", "Bootstrap", "MySQL", "Chart.js"]
-        }, {
-            when: "Mai 2026 – Présent",
-            title: "Analyste SIG – Freelance",
-            org: "Données géospatiales (sur site)",
-            points: ["Collecte, nettoyage et structuration de données géospatiales (ArcGIS Pro) en jeux de données exploitables.", "Planification d'itinéraires et analyse spatiale."],
-            stack: ["ArcGIS Pro", "SIG", "Data"]
         }];
         const AWARDS = [{
             medal: "🥇",
@@ -2539,7 +2554,7 @@
 
         function mediaLabel(type, count) {
             return `<span class="media-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${type==="video"?'<path d="M4 5h11v14H4z"/><path d="M15 9l5-3v12l-5-3z"/>':'<path d="M4 5h16v14H4z"/><path d="M8 13l2.5-2.5L16 16"/><circle cx="15" cy="9" r="1.5"/>'}</svg>${type==="video"?"Video":"Galerie"}${count?` - ${count}`:""}</span>`;}
-function techIcon(name){const clean=String(name).replace(/[^a-zA-Z0-9+#/.]/g,"").toUpperCase();const map={JAVASCRIPT:"JS",TYPESCRIPT:"TS",PYTHON:"PY",JAVA:"JV",PHP:"PH",SQL:"SQ","C#":"C#",DART:"DT",SPRINGBOOT:"SB",LARAVEL:"LV",ANGULAR:"NG","REACT.JS":"RX",REACT:"RX","NEXT.JS":"NX",TAILWINDCSS:"TW",BOOTSTRAP:"BS",FLUTTER:"FL",DOCKER:"DK","CI/CD":"CI",JENKINS:"JK",GITHUBACTIONS:"GA",GIT:"GT",NGINX:"NX",TRAEFIK:"TF",FASTAPI:"FA",MYSQL:"MY",POSTGRESQL:"PG",FIREBASE:"FB",MONGODB:"MG",ORACLE:"OR",POSTMAN:"PM",FIGMA:"FG",UML:"UM",SCRUM:"SC",AGILE:"AG"};return map[clean]||clean.slice(0,2)||"IT";}
+function techIcon(name){const clean=String(name).replace(/[^a-zA-Z0-9+#/.]/g,"").toUpperCase();const map={JAVASCRIPT:"JS",TYPESCRIPT:"TS",PYTHON:"PY",JAVA:"JV",PHP:"PH",SQL:"SQ","C#":"C#",DART:"DT",SPRINGBOOT:"SB",LARAVEL:"LV",ANGULAR:"NG","REACT.JS":"RX",REACT:"RX","NEXT.JS":"NX",TAILWINDCSS:"TW",BOOTSTRAP:"BS",FLUTTER:"FL",DOCKER:"DK","CI/CD":"CI",JENKINS:"JK",GITHUBACTIONS:"GA",GIT:"GT",NGINX:"NX",TRAEFIK:"TF",FASTAPI:"FA",MYSQL:"MY",POSTGRESQL:"PG",FIREBASE:"FB",MONGODB:"MG",ORACLE:"OR",POSTMAN:"PM",FIGMA:"FG",UML:"UM",SCRUM:"SC",AGILE:"AG",POWERBI:"BI",ETL:"ET"};return map[clean]||clean.slice(0,2)||"IT";}
 function projectThumb(p){
   if(p.video&&(p.preview==="video"||!(p.images&&p.images.length))){
     const isMobile=p.cat&&p.cat.includes("mobile");
@@ -2729,6 +2744,10 @@ function tick(){const w=TYPED[wi];if(!del){node.textContent=w.slice(0,++ci);if(c
 
 navigate((location.hash||'#home').slice(1),false);
     </script>
+</body>
+
+</html>
+</script>
 </body>
 
 </html>
