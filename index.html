@@ -32,8 +32,8 @@
             --header-h: 70px;
             --ease: cubic-bezier(.22, .7, .2, 1);
             --mono: "JetBrains Mono", ui-monospace, monospace;
-            --display: "Syne", sans-serif;
-            --body: "Syne", system-ui, sans-serif;
+            --display: "Manrope", "Segoe UI", Calibri, Arial, sans-serif;
+            --body: "Manrope", "Segoe UI", Calibri, Arial, sans-serif;
         }
         
         * {
@@ -54,6 +54,13 @@
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
             min-height: 100vh
+        }
+        
+        em,
+        i,
+        .italic {
+            font-style: normal;
+            font-family: var(--body)
         }
         
         a {
@@ -454,7 +461,8 @@
             line-height: 1.72;
             margin-bottom: 42px;
             font-family: var(--body);
-            font-weight: 600
+            font-weight: 600;
+            overflow-wrap: anywhere
         }
         
         .reveal {
@@ -1328,43 +1336,193 @@
         font-size: 1rem;
         line-height: 1.7
     }
-    .cert {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        padding: 18px 20px
-    }
-    .cert .seal {
-        width: 64px;
-        height: 52px;
-        border-radius: 10px;
+    .cert-overview {
         display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, rgba(232, 184, 109, .22), rgba(43, 183, 216, .08));
-        border: 1px solid rgba(232, 184, 109, .34);
-        color: var(--gold);
-        flex-shrink: 0;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06)
+        grid-template-columns: 1.25fr repeat(2, minmax(0, .8fr));
+        gap: 12px;
+        margin: -14px 0 24px
     }
-    .cert .seal svg {
-        width: 30px;
-        height: 30px
+    .cert-metric {
+        min-height: 104px;
+        min-width: 0;
+        padding: 17px 18px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: linear-gradient(145deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .025));
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between
     }
-    .cert h3 {
+    .cert-metric span {
+        font-family: var(--mono);
+        font-size: .68rem;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: var(--accent-3)
+    }
+    .cert-metric strong {
+        font-family: var(--display);
+        font-size: 1.02rem;
+        line-height: 1.25
+    }
+    .cert-metric small {
+        color: var(--faint);
+        font-size: .84rem
+    }
+    .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        min-width: 0
+    }
+    .card.cert-card {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        min-height: 100%;
+        min-width: 0;
+        border-radius: 12px
+    }
+    .cert-card.featured-cert {
+        grid-column: span 2
+    }
+    .cert-thumb {
+        position: relative;
+        display: block;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        border-bottom: 1px solid var(--border);
+        background: #f4f7fa
+    }
+    .cert-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .45s var(--ease)
+    }
+    .cert-card:hover .cert-thumb img {
+        transform: scale(1.025)
+    }
+    .cert-level {
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        max-width: calc(100% - 24px);
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(8, 10, 14, .78);
+        border: 1px solid rgba(255, 255, 255, .16);
+        color: var(--text);
+        font-family: var(--mono);
+        font-size: .63rem;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px)
+    }
+    .cert-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
+        min-width: 0;
+        padding: 18px
+    }
+    .cert-topline,
+    .cert-meta,
+    .cert-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px
+    }
+    .cert-topline {
+        justify-content: space-between;
+        align-items: center;
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: .66rem;
+        letter-spacing: .12em;
+        text-transform: uppercase
+    }
+    .cert-topline span,
+    .cert-title-row h3 {
+        min-width: 0;
+        overflow-wrap: anywhere
+    }
+    .cert-title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px
+    }
+    .cert-title-row h3 {
         font-family: var(--display);
         font-weight: 700;
-        font-size: 1.02rem
+        font-size: 1.05rem;
+        line-height: 1.25
     }
-    .cert .sub {
-        color: var(--muted);
-        font-size: .95rem
+    .featured-cert .cert-title-row h3 {
+        font-size: clamp(1.15rem, 2.1vw, 1.45rem)
     }
-    .cert .by {
-        margin-left: auto;
+    .cert-title-row h3 a {
+        transition: color .25s
+    }
+    .cert-title-row h3 a:hover {
+        color: var(--accent-3)
+    }
+    .cert-proof {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        min-height: 34px;
+        padding: 8px 11px;
+        border: 1px solid rgba(43, 183, 216, .34);
+        border-radius: 999px;
+        color: var(--accent-3);
+        background: rgba(43, 183, 216, .09);
         font-family: var(--mono);
-        font-size: .72rem;
-        color: var(--faint);
-        white-space: nowrap
+        font-size: .66rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: transform .25s var(--ease), border-color .25s, background .25s
+    }
+    .cert-proof:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent-3);
+        background: rgba(43, 183, 216, .15)
+    }
+    .cert-proof svg {
+        width: 14px;
+        height: 14px
+    }
+    .cert-desc {
+        color: var(--muted);
+        font-size: .96rem;
+        line-height: 1.64
+    }
+    .cert-meta span,
+    .cert-tags span {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--surface);
+        color: var(--muted);
+        font-size: .75rem;
+        padding: 5px 9px
+    }
+    .cert-meta span {
+        font-family: var(--mono);
+        color: var(--faint)
+    }
+    .cert-tags span {
+        color: var(--text)
+    }
+    .subsection-title {
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 1.15rem;
+        margin: 38px 0 8px
     }
     .lang-bar {
         display: flex;
@@ -1725,6 +1883,14 @@
             gap: 28px
         }
         
+        .cert-overview {
+            grid-template-columns: 1fr
+        }
+        
+        .cert-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+        }
+        
         .hero-stats {
             grid-template-columns: repeat(2, minmax(0, 1fr))
         }
@@ -1883,15 +2049,24 @@
             white-space: normal
         }
         
-        .cert {
-            align-items: flex-start;
-            gap: 14px;
-            flex-wrap: wrap
+        .cert-grid {
+            grid-template-columns: 1fr
         }
         
-        .cert .by {
-            margin-left: 0;
-            width: 100%
+        .cert-card.featured-cert {
+            grid-column: span 1
+        }
+        
+        .cert-title-row {
+            flex-direction: column
+        }
+        
+        .cert-topline {
+            justify-content: flex-start
+        }
+        
+        .cert-proof {
+            align-self: flex-start
         }
         
         .lightbox {
@@ -1958,6 +2133,10 @@
         
         .card {
             padding: 18px
+        }
+        
+        .card.cert-card {
+            padding: 0
         }
         
         .proj .proj-body {
@@ -2050,8 +2229,8 @@
                             <div class="l">Laureat / podium</div>
                         </div>
                         <div class="stat">
-                            <div class="n">2</div>
-                            <div class="l">Certifs Oracle</div>
+                            <div class="n">7</div>
+                            <div class="l">Preuves certifs</div>
                         </div>
                     </div>
                 </div>
@@ -2146,14 +2325,19 @@
         <!-- CERTIFICATIONS -->
         <section class="view" id="view-certs" data-view="certs">
             <div class="eyebrow reveal">Certifications &amp; langues</div>
-            <h2 class="section-title reveal">Certifications</h2>
-            <p class="section-lead reveal">Validées par Oracle et complétées par des formations spécialisées.</p>
-            <div class="grid" id="certGrid" style="gap:14px"></div>
-            <h3 style="font-family:var(--display);font-weight:700;font-size:1.15rem;margin:38px 0 6px">Langues</h3>
+            <h2 class="section-title reveal">Certifications prouvées</h2>
+            <p class="section-lead reveal">Chaque titre ouvre sa preuve officielle : certification Oracle, DevOps, full-stack, UI/UX et participation hackathon, classées par impact pour un recruteur.</p>
+            <div class="cert-overview reveal" aria-label="Résumé des certifications">
+                <div class="cert-metric"><span>Priorité 01</span><strong>Oracle Certified Professional Java SE 17</strong><small>Le signal technique le plus fort du dossier.</small></div>
+                <div class="cert-metric"><span>Preuves</span><strong>7 documents</strong><small>Images et PDF vérifiables.</small></div>
+                <div class="cert-metric"><span>Axes</span><strong>Java, DevOps, Full-Stack, UI/UX</strong><small>Un socle cohérent avec tes projets.</small></div>
+            </div>
+            <div class="cert-grid" id="certGrid"></div>
+            <h3 class="subsection-title reveal">Langues</h3>
             <div class="lang-bar">
                 <div class="lang"><b>Arabe</b><span>maternelle</span></div>
                 <div class="lang"><b>Français</b><span>courant</span></div>
-                <div class="lang"><b>Anglais</b><span></span></div>
+                <div class="lang"><b>Anglais</b><span>technique</span></div>
             </div>
         </section>
 
@@ -2481,17 +2665,68 @@
             desc: "Organisation d'événements tech, encadrement de projets et animation de la communauté étudiante."
         }];
         const CERTS = [{
-            title: "Oracle Certified Professional – Java SE 17 Developer",
-            sub: "Certification professionnelle Java",
-            by: "Oracle · 2026"
+            level: "Certification Oracle",
+            title: "Oracle Certified Professional - Java SE 17 Developer",
+            issuer: "Oracle University",
+            desc: "Certification professionnelle Java SE 17 : le signal le plus fort pour les rôles backend, full-stack Java et architecture logicielle.",
+            meta: ["24 fév. 2026", "Oracle Certified Professional", "Java SE 17"],
+            tags: ["Java", "OCP", "Backend"],
+            proof: "./certifs/java_se_17.png",
+            thumb: "./certifs/thumbs/java-se-17.jpg"
         }, {
-            title: "Oracle Cloud Infrastructure (OCI) 2025 – Foundations Associate",
-            sub: "Fondamentaux du cloud OCI",
-            by: "Oracle · 2025"
+            level: "DevOps",
+            title: "GitLab CI/CD: Architecting, Deploying, and Optimizing Pipelines",
+            issuer: "KodeKloud",
+            desc: "Formation CI/CD orientée architecture de pipelines, déploiement et optimisation des workflows GitLab.",
+            meta: ["17 fév. 2026", "Course completion", "ID 6c8681f5"],
+            tags: ["GitLab CI/CD", "DevOps", "Pipelines"],
+            proof: "./certifs/GitLab%20CICD.pdf",
+            thumb: "./certifs/thumbs/gitlab-cicd.jpg"
         }, {
-            title: "Formations Udemy",
-            sub: "React.js E-Commerce · Laravel · Git, GitLab & GitHub",
-            by: "Udemy"
+            level: "Backend",
+            title: "PHP Laravel: Build Coffee Shop Management System",
+            issuer: "Udemy",
+            desc: "Formation Laravel appliquée à une application de gestion complète, utile pour valoriser tes projets PHP et dashboards métier.",
+            meta: ["23 mars 2025", "9 heures", "Laravel"],
+            tags: ["PHP", "Laravel", "MySQL"],
+            proof: "./certifs/UC-c43dd976-f2b7-4775-bbd0-4fbea3c1257c.pdf",
+            thumb: "./certifs/thumbs/laravel-coffee-shop.jpg"
+        }, {
+            level: "Frontend",
+            title: "React.JS for Ecommerce: Building a Store with React.JS",
+            issuer: "Udemy",
+            desc: "Formation React orientée e-commerce, composants et expérience d'achat côté frontend.",
+            meta: ["29 mars 2025", "3.5 heures", "React"],
+            tags: ["React", "E-commerce", "UI"],
+            proof: "./certifs/UC-8fd12fb0-baba-4790-9f5e-eeed58eb63ff.pdf",
+            thumb: "./certifs/thumbs/react-ecommerce.jpg"
+        }, {
+            level: "Versioning",
+            title: "GIT, GitLab, GitHub Fundamentals for Software Developers",
+            issuer: "Udemy",
+            desc: "Base solide pour collaboration, branches, dépôts GitLab/GitHub et pratiques de versioning au quotidien.",
+            meta: ["13 fév. 2025", "1 heure", "Git"],
+            tags: ["Git", "GitHub", "GitLab"],
+            proof: "./certifs/UC-f1efcf9e-9278-49d0-b032-f535d7c9ccc5.pdf",
+            thumb: "./certifs/thumbs/git-gitlab-github.jpg"
+        }, {
+            level: "UI/UX",
+            title: "Learn Figma: UI/UX Design Masterclass From Beginner to Pro",
+            issuer: "Udemy",
+            desc: "Formation design produit pour mieux cadrer les interfaces, prototypes et parcours utilisateurs.",
+            meta: ["12 fév. 2025", "4.5 heures", "Figma"],
+            tags: ["Figma", "UI/UX", "Prototype"],
+            proof: "./certifs/UC-94b04e74-7436-4608-a027-772a7fc71fac%20%281%29.pdf",
+            thumb: "./certifs/thumbs/figma-ui-ux.jpg"
+        }, {
+            level: "Hackathon",
+            title: "OrientalHack 1.0 - Certificat d'appréciation",
+            issuer: "UMP Oujda / ENCGO",
+            desc: "Participation au hackathon OrientalHack 1.0 autour des solutions digitales pour l'économie sociale et solidaire.",
+            meta: ["14-16 fév. 2025", "Ryzen ENCGO", "Hackathon"],
+            tags: ["Hackathon", "Innovation", "Teamwork"],
+            proof: "./certifs/orientalHack1.0.jpg",
+            thumb: "./certifs/thumbs/orientalhack-1.jpg"
         }];
         const EDUCATION = [{
             when: "2024 – 2027",
@@ -2681,7 +2916,27 @@ EDUCATION.forEach(x=>{const pts=x.points.map(p=>`<li>${p}</li>`).join("");eduTL.
 const awardsGrid=document.getElementById('awardsGrid');
 AWARDS.forEach(a=>awardsGrid.appendChild(el(`<div class="card award reveal"><span class="medal">${a.medal}</span><div><h3>${a.title}</h3><div class="meta">${a.meta}</div><p>${a.desc}</p></div></div>`)));
 const certGrid=document.getElementById('certGrid');
-CERTS.forEach(c=>certGrid.appendChild(el(`<div class="card cert reveal"><span class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></span><div><h3>${c.title}</h3><div class="sub">${c.sub}</div></div><span class="by">${c.by}</span></div>`)));
+CERTS.forEach((c,i)=>{
+  const rank=String(i+1).padStart(2,'0');
+  const meta=(c.meta||[]).map(m=>`<span>${escapeHtml(m)}</span>`).join("");
+  const tags=(c.tags||[]).map(t=>`<span>${escapeHtml(t)}</span>`).join("");
+  certGrid.appendChild(el(`<article class="card cert-card ${i===0?'featured-cert':''} reveal">
+    <a class="cert-thumb" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="Ouvrir la preuve ${escapeHtml(c.title)}">
+      <img src="${escapeHtml(c.thumb)}" alt="Apercu du certificat ${escapeHtml(c.title)}" loading="lazy" decoding="async">
+      <span class="cert-level">${escapeHtml(c.level)}</span>
+    </a>
+    <div class="cert-content">
+      <div class="cert-topline"><span>#${rank}</span><span>${escapeHtml(c.issuer)}</span></div>
+      <div class="cert-title-row">
+        <h3><a href="${escapeHtml(c.proof)}" target="_blank" rel="noopener">${escapeHtml(c.title)}</a></h3>
+        <a class="cert-proof" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="Voir la preuve de ${escapeHtml(c.title)}">Preuve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+      <p class="cert-desc">${escapeHtml(c.desc)}</p>
+      <div class="cert-meta">${meta}</div>
+      <div class="cert-tags">${tags}</div>
+    </div>
+  </article>`));
+});
 const contactLinks=document.getElementById('contactLinks');
 CONTACTS.forEach(c=>{const ext=c.href.startsWith('http')?'target="_blank" rel="noopener"':'';contactLinks.appendChild(el(`<a class="clink reveal" href="${c.href}" ${ext}><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${c.svg}</svg></span><span><span class="k">${c.k}</span><br><span class="v">${c.v}</span></span></a>`));});
 document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();const n=cname.value,m=cmail.value,msg=cmsg.value;window.location.href=`mailto:ferhanabdelali@gmail.com?subject=${encodeURIComponent('Contact portfolio â€” '+n)}&body=${encodeURIComponent(msg+'\\n\\nâ€” '+n+' ('+m+')')}`;});
