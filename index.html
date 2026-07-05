@@ -241,6 +241,112 @@
             width: 15px;
             height: 15px
         }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 0 0 auto
+        }
+
+        .language-switch {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px;
+            border: 1px solid var(--border-2);
+            border-radius: 11px;
+            background: rgba(8, 12, 18, .72)
+        }
+
+        .language-switch button {
+            min-width: 38px;
+            min-height: 36px;
+            padding: 7px 9px;
+            border-radius: 8px;
+            color: var(--faint);
+            font-family: var(--mono);
+            font-size: .73rem;
+            font-weight: 600;
+            letter-spacing: .04em;
+            transition: color .2s, background .2s, box-shadow .2s
+        }
+
+        .language-switch button:hover {
+            color: var(--text)
+        }
+
+        .language-switch button[aria-pressed="true"] {
+            color: #04222b;
+            background: var(--grad);
+            box-shadow: 0 6px 16px rgba(43, 183, 216, .18)
+        }
+
+        .cv-picker {
+            position: relative;
+            z-index: 4
+        }
+
+        .cv-picker summary {
+            list-style: none
+        }
+
+        .cv-picker summary::-webkit-details-marker {
+            display: none
+        }
+
+        .cv-picker summary::after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            margin-left: 2px;
+            border-right: 1.8px solid currentColor;
+            border-bottom: 1.8px solid currentColor;
+            transform: translateY(-2px) rotate(45deg);
+            transition: transform .2s
+        }
+
+        .cv-picker[open] summary::after {
+            transform: translateY(2px) rotate(225deg)
+        }
+
+        .cv-options {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            width: max-content;
+            min-width: 190px;
+            padding: 7px;
+            border: 1px solid var(--border-2);
+            border-radius: 13px;
+            background: rgba(10, 14, 21, .98);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, .38);
+            backdrop-filter: blur(16px)
+        }
+
+        .cv-options a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            min-height: 42px;
+            padding: 9px 11px;
+            border-radius: 9px;
+            color: var(--muted);
+            font-size: .86rem;
+            font-weight: 650;
+            transition: color .2s, background .2s
+        }
+
+        .cv-options a:hover {
+            color: var(--text);
+            background: var(--surface-2)
+        }
+
+        .cv-options small {
+            color: var(--accent-3);
+            font-family: var(--mono);
+            font-size: .67rem
+        }
         
         .burger {
             display: none;
@@ -307,6 +413,7 @@
             padding: 26px 24px;
             background: rgba(8, 10, 14, .98);
             backdrop-filter: blur(16px);
+            overflow-y: auto;
             transform: translateX(100%);
             transition: transform .4s var(--ease);
             visibility: hidden
@@ -381,6 +488,31 @@
         .menu .msoc svg {
             width: 22px;
             height: 22px
+        }
+
+        .menu-cv {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 22px
+        }
+
+        .menu-cv a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 10px;
+            border: 1px solid var(--border-2);
+            border-radius: 11px;
+            color: var(--muted);
+            font-size: .82rem;
+            font-weight: 700
+        }
+
+        .menu-cv a:hover {
+            color: var(--text);
+            border-color: var(--accent)
         }
         /* ---------- MAIN / VIEWS ---------- */
         
@@ -602,7 +734,13 @@
         .hero-cta {
             display: flex;
             gap: 14px;
-            flex-wrap: wrap
+            flex-wrap: wrap;
+            align-items: flex-start
+        }
+
+        .hero-cv-picker .cv-options {
+            right: auto;
+            left: 0
         }
         
         .btn {
@@ -2050,11 +2188,14 @@
         
         @media (max-width:1180px) {
             .hnav,
-            .header-cv {
+            .header-cv-picker {
                 display: none
             }
             .burger {
                 display: grid
+            }
+            .header-actions {
+                margin-left: auto
             }
             .hero-logo {
                 opacity: .4
@@ -2141,6 +2282,12 @@
             }
             .hero-cta {
                 gap: 10px
+            }
+            .hero-cv-picker {
+                width: 100%
+            }
+            .hero-cv-picker .cv-options {
+                width: 100%
             }
             .btn {
                 width: 100%;
@@ -2304,21 +2451,34 @@
 
     <!-- HEADER -->
     <header class="site-header">
-        <a href="#home" class="brand" data-route="home" aria-label="Accueil">
+        <a href="#home" class="brand" data-route="home" aria-label="Accueil" data-i18n-aria="brand.home">
             <span class="av">
       <img src="./ChatGPT Image Apr 2, 2025, 01_17_41 AM.png" alt="Abdelali Ferhan"
            onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='flex'">
       <span class="ph" style="display:none">AF</span>
             </span>
-            <span class="bt">Abdelali Ferhan<small>Full-Stack Â· DevOps</small></span>
+            <span class="bt">Abdelali Ferhan<small data-i18n="brand.role">Full-Stack · DevOps</small></span>
         </a>
         <nav class="hnav" id="hnav"></nav>
-        <a class="header-cv" href="./my_resume_latest.pdf" target="_blank">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg> CV
-        </a>
-        <button class="burger" id="burger" aria-label="Menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-  </button>
+        <div class="header-actions">
+            <div class="language-switch" role="group" aria-label="Choisir la langue du portfolio" data-i18n-aria="language.label">
+                <button type="button" data-language="fr" aria-pressed="true" lang="fr">FR</button>
+                <button type="button" data-language="en" aria-pressed="false" lang="en">EN</button>
+            </div>
+            <details class="cv-picker header-cv-picker">
+                <summary class="header-cv" aria-label="Choisir la langue du CV" data-i18n-aria="cv.menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+                    <span data-i18n="cv.open">CV</span>
+                </summary>
+                <div class="cv-options">
+                    <a href="./FERHAN_Abdelali-.pdf" target="_blank" rel="noopener" hreflang="fr"><span data-i18n="cv.fr">CV en français</span><small>FR</small></a>
+                    <a href="./FERHAN_Abdelali_EN.pdf" target="_blank" rel="noopener" hreflang="en"><span data-i18n="cv.en">CV in English</span><small>EN</small></a>
+                </div>
+            </details>
+            <button class="burger" id="burger" aria-label="Ouvrir le menu" data-i18n-aria="menu.open">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+        </div>
     </header>
 
     <!-- RIGHT SOCIAL RAIL (home) -->
@@ -2326,8 +2486,12 @@
 
     <!-- MOBILE MENU -->
     <div class="menu" id="menu">
-        <button class="x" id="menuClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <button class="x" id="menuClose" aria-label="Fermer le menu" data-i18n-aria="menu.close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
         <nav id="mnav"></nav>
+        <div class="menu-cv">
+            <a href="./FERHAN_Abdelali-.pdf" target="_blank" rel="noopener" hreflang="fr" data-i18n="cv.fr">CV en français</a>
+            <a href="./FERHAN_Abdelali_EN.pdf" target="_blank" rel="noopener" hreflang="en" data-i18n="cv.en">CV in English</a>
+        </div>
         <div class="msoc" id="msoc"></div>
     </div>
 
@@ -2335,37 +2499,44 @@
     <main class="main">
 
         <!-- HOME -->
-        <section class="view" id="view-home" data-view="home" aria-label="Accueil">
+        <section class="view" id="view-home" data-view="home" aria-label="Accueil" data-i18n-aria="home.label">
             <div class="hero">
                 <div class="hero-text">
-                    <div class="hero-status reveal"><span class="dot"></span> Base à Fès – mobile sur Oujda / Rabat / Casa / Tanger</div>
+                    <div class="hero-status reveal"><span class="dot"></span><span data-i18n="hero.status">Basé à Fès · Mobile sur Oujda, Rabat, Casablanca et Tanger</span></div>
                     <h1 class="reveal">Abdelali <span class="grad">Ferhan</span></h1>
                     <div class="typed-wrap reveal"><span class="typed" id="typed"></span></div>
-                    <p class="lede reveal">Futur ingénieur <strong>Full-Stack & DevOps</strong>, passionné et compétent en <strong>IA</strong>. Je construis des applications propres, utiles et déployées avec Docker, CI/CD et des architectures modernes.</p>
+                    <p class="lede reveal" data-i18n-html="hero.lede">Futur ingénieur <strong>Full-Stack & DevOps</strong>, avec une solide pratique de l’<strong>IA</strong>. Je conçois des applications utiles, robustes et prêtes à être déployées grâce à Docker, au CI/CD et à des architectures modernes.</p>
                     <div class="hero-cta reveal">
-                        <a class="btn btn-primary" href="./my_resume_latest.pdf" target="_blank">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg> Télécharger mon CV
-                        </a>
-                        <a class="btn btn-ghost" href="#projects" data-route="projects">Voir mes projets
+                        <details class="cv-picker hero-cv-picker">
+                            <summary class="btn btn-primary" aria-label="Choisir la langue du CV" data-i18n-aria="cv.menu">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+                                <span data-i18n="cv.hero">Voir mon CV</span>
+                            </summary>
+                            <div class="cv-options">
+                                <a href="./FERHAN_Abdelali-.pdf" target="_blank" rel="noopener" hreflang="fr"><span data-i18n="cv.fr">CV en français</span><small>FR</small></a>
+                                <a href="./FERHAN_Abdelali_EN.pdf" target="_blank" rel="noopener" hreflang="en"><span data-i18n="cv.en">CV in English</span><small>EN</small></a>
+                            </div>
+                        </details>
+                        <a class="btn btn-ghost" href="#projects" data-route="projects"><span data-i18n="hero.projects">Voir mes projets</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
                     </div>
                     <div class="hero-stats reveal">
                         <div class="stat">
                             <div class="n">2+</div>
-                            <div class="l">Ans freelance</div>
+                            <div class="l" data-i18n="hero.stat.freelance">Ans de freelance</div>
                         </div>
                         <div class="stat">
                             <div class="n">10+</div>
-                            <div class="l">Projets livres</div>
+                            <div class="l" data-i18n="hero.stat.projects">Projets livrés</div>
                         </div>
                         <div class="stat">
                             <div class="n">3x</div>
-                            <div class="l">Laureat / podium</div>
+                            <div class="l" data-i18n="hero.stat.awards">Victoires / podiums</div>
                         </div>
                         <div class="stat">
                             <div class="n">7</div>
-                            <div class="l">Preuves certifs</div>
+                            <div class="l" data-i18n="hero.stat.certs">Certifications vérifiées</div>
                         </div>
                     </div>
                 </div>
@@ -2376,7 +2547,7 @@
         <defs><linearGradient id="hg" x1="205" y1="20" x2="204" y2="349" gradientUnits="userSpaceOnUse"><stop stop-color="#1595B6"/><stop offset="1" stop-color="#62E0F2" stop-opacity=".85"/></linearGradient></defs>
       </svg>
             </div>
-            <button class="scroll-cue" data-route="projects" aria-label="Voir les projets">
+            <button class="scroll-cue" data-route="projects" aria-label="Voir les projets" data-i18n-aria="hero.scroll">
       <span class="lbl"></span>
       <span class="arrow"></span>
     </button>
@@ -2384,40 +2555,40 @@
 
         <!-- ABOUT -->
         <section class="view" id="view-about" data-view="about">
-            <div class="eyebrow reveal">À propos</div>
-            <h2 class="section-title reveal">Qui je suis</h2>
+            <div class="eyebrow reveal" data-i18n="about.eyebrow">À propos</div>
+            <h2 class="section-title reveal" data-i18n="about.title">Qui je suis</h2>
             <div class="about-grid">
                 <div>
-                    <p class="reveal">Je suis <strong>Abdelali Ferhan</strong>, futur ingénieur en informatique à l'<strong>ENIAD Berkane</strong>, en cycle ingénieur après un <strong>DUT en Informatique</strong> à l'EST de Fès.</p>
-                    <p class="reveal">Je développe des produits web et mobile en <strong>Full-Stack</strong>, avec une forte culture <strong>DevOps</strong> : Docker, CI/CD, microservices, API propres et déploiements fiables.</p>
-                    <p class="reveal">Je suis aussi passionné par l'<strong>Intelligence Artificielle</strong> : agents IA, data, automatisation et interfaces qui rendent la technologie vraiment utile.</p>
-                    <div class="about-tech reveal" aria-label="Technologies principales">
+                    <p class="reveal" data-i18n-html="about.p1">Je suis <strong>Abdelali Ferhan</strong>, futur ingénieur en informatique à l’<strong>ENIAD Berkane</strong>, après un <strong>DUT en Informatique</strong> à l’EST de Fès.</p>
+                    <p class="reveal" data-i18n-html="about.p2">Je transforme des besoins métier en produits web et mobile <strong>Full-Stack</strong>, avec une vraie culture <strong>DevOps</strong> : conteneurisation, CI/CD, microservices, API bien conçues et déploiements fiables.</p>
+                    <p class="reveal" data-i18n-html="about.p3">Je m’intéresse également à l’<strong>Intelligence Artificielle</strong>, aux agents IA, à la data et à l’automatisation — toujours avec le même objectif : rendre la technologie concrètement utile.</p>
+                    <div class="about-tech reveal" aria-label="Technologies principales" data-i18n-aria="about.techAria">
                         <div class="tech-marquee" id="aboutTechMarquee"></div>
                     </div>
                 </div>
                 <div class="about-side">
                     <div class="fact reveal"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 4-9 4-9-4 9-4zM3 11l9 4 9-4M3 15l9 4 9-4"/></svg></span>
                         <div>
-                            <div class="k">Formation</div>
-                            <div class="v">Cycle Ingénieur - ENIAD Berkane</div>
+                            <div class="k" data-i18n="about.educationKey">Formation</div>
+                            <div class="v" data-i18n="about.educationValue">Cycle Ingénieur — ENIAD Berkane</div>
                         </div>
                     </div>
                     <div class="fact reveal"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 00-8-8z"/></svg></span>
                         <div>
-                            <div class="k">Base à</div>
-                            <div class="v">Fès - mobile Oujda / Rabat / Casa / Tanger</div>
+                            <div class="k" data-i18n="about.locationKey">Basé à</div>
+                            <div class="v" data-i18n="about.locationValue">Fès · Mobile sur Oujda, Rabat, Casablanca et Tanger</div>
                         </div>
                     </div>
                     <div class="fact reveal"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18v13H3zM8 7V4h8v3"/></svg></span>
                         <div>
-                            <div class="k">Objectif</div>
-                            <div class="v">Stage PFA - Full-Stack / DevOps / IA</div>
+                            <div class="k" data-i18n="about.goalKey">Objectif</div>
+                            <div class="v" data-i18n="about.goalValue">Stage PFA — Full-Stack / DevOps / IA</div>
                         </div>
                     </div>
                     <div class="fact reveal"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></span>
                         <div>
-                            <div class="k">Langues</div>
-                            <div class="v">Arabe / Francais / Anglais</div>
+                            <div class="k" data-i18n="about.languagesKey">Langues</div>
+                            <div class="v" data-i18n="about.languagesValue">Arabe / Français / Anglais</div>
                         </div>
                     </div>
                 </div>
@@ -2426,70 +2597,70 @@
 
         <!-- SKILLS -->
         <section class="view" id="view-skills" data-view="skills">
-            <div class="eyebrow reveal">Stack technique</div>
-            <h2 class="section-title reveal">Compétences</h2>
-            <p class="section-lead reveal">Un socle full-stack orienté Java &amp; PHP, complété par une vraie culture DevOps et des bases en data &amp; IA.</p>
+            <div class="eyebrow reveal" data-i18n="skills.eyebrow">Stack technique</div>
+            <h2 class="section-title reveal" data-i18n="skills.title">Compétences</h2>
+            <p class="section-lead reveal" data-i18n="skills.lead">Une expertise full-stack orientée Java et PHP, renforcée par une pratique concrète du DevOps, de la data et de l’IA.</p>
             <div class="grid cols-2" id="skillsGrid"></div>
         </section>
 
         <!-- PROJECTS -->
         <section class="view" id="view-projects" data-view="projects">
-            <div class="eyebrow reveal">Réalisations</div>
-            <h2 class="section-title reveal">Projets sélectionnés</h2>
-            <p class="section-lead reveal">Projets académiques, freelance et de hackathon – filtrez par domaine.</p>
+            <div class="eyebrow reveal" data-i18n="projects.eyebrow">Réalisations</div>
+            <h2 class="section-title reveal" data-i18n="projects.title">Projets sélectionnés</h2>
+            <p class="section-lead reveal" data-i18n="projects.lead">Une sélection de projets académiques, freelance et de hackathon — à filtrer par domaine.</p>
             <div class="filters reveal" id="filters"></div>
             <div class="grid cols-2" id="projectsGrid"></div>
         </section>
 
         <!-- EXPERIENCE -->
         <section class="view" id="view-experience" data-view="experience">
-            <div class="eyebrow reveal">Parcours professionnel</div>
-            <h2 class="section-title reveal">Expérience</h2>
-            <p class="section-lead reveal">Du freelance client réel aux stages techniques en entreprise.</p>
+            <div class="eyebrow reveal" data-i18n="experience.eyebrow">Parcours professionnel</div>
+            <h2 class="section-title reveal" data-i18n="experience.title">Expérience</h2>
+            <p class="section-lead reveal" data-i18n="experience.lead">Des missions freelance pour de vrais clients aux stages techniques en entreprise.</p>
             <div class="timeline" id="expTimeline"></div>
         </section>
 
         <!-- ACHIEVEMENTS -->
         <section class="view" id="view-achievements" data-view="achievements">
-            <div class="eyebrow reveal">Distinctions &amp; engagement</div>
-            <h2 class="section-title reveal">Réalisations & Distinctions</h2>
-            <p class="section-lead reveal">Hackathons, pitch challenges et vie associative.</p>
+            <div class="eyebrow reveal" data-i18n="achievements.eyebrow">Distinctions &amp; engagement</div>
+            <h2 class="section-title reveal" data-i18n="achievements.title">Réalisations & distinctions</h2>
+            <p class="section-lead reveal" data-i18n="achievements.lead">Hackathons, concours de pitch et engagement associatif.</p>
             <div class="grid cols-2" id="awardsGrid"></div>
         </section>
 
         <!-- CERTIFICATIONS -->
         <section class="view" id="view-certs" data-view="certs">
-            <div class="eyebrow reveal">Certifications &amp; langues</div>
-            <h2 class="section-title reveal">Certifications prouvées</h2>
-            <p class="section-lead reveal">Chaque titre ouvre sa preuve officielle : certification Oracle, DevOps, full-stack, UI/UX et participation hackathon</p>
+            <div class="eyebrow reveal" data-i18n="certs.eyebrow">Certifications &amp; langues</div>
+            <h2 class="section-title reveal" data-i18n="certs.title">Certifications vérifiées</h2>
+            <p class="section-lead reveal" data-i18n="certs.lead">Chaque certification renvoie vers sa preuve : Oracle, DevOps, full-stack, UI/UX et hackathon.</p>
             <div class="cert-grid" id="certGrid"></div>
-            <h3 class="subsection-title reveal">Langues</h3>
+            <h3 class="subsection-title reveal" data-i18n="certs.languages">Langues</h3>
             <div class="lang-bar">
-                <div class="lang"><b>Arabe</b><span>maternelle</span></div>
-                <div class="lang"><b>Français</b><span>courant</span></div>
-                <div class="lang"><b>Anglais</b><span>technique</span></div>
+                <div class="lang"><b data-i18n="language.arabic">Arabe</b><span data-i18n="language.native">langue maternelle</span></div>
+                <div class="lang"><b data-i18n="language.french">Français</b><span data-i18n="language.fluent">courant</span></div>
+                <div class="lang"><b data-i18n="language.english">Anglais</b><span data-i18n="language.technical">technique</span></div>
             </div>
         </section>
 
         <!-- EDUCATION -->
         <section class="view" id="view-education" data-view="education">
-            <div class="eyebrow reveal">Cursus académique</div>
-            <h2 class="section-title reveal">Formation</h2>
+            <div class="eyebrow reveal" data-i18n="education.eyebrow">Cursus académique</div>
+            <h2 class="section-title reveal" data-i18n="education.title">Formation</h2>
             <div class="timeline" id="eduTimeline"></div>
         </section>
 
         <!-- CONTACT -->
         <section class="view" id="view-contact" data-view="contact">
-            <div class="eyebrow reveal">Restons en contact</div>
-            <h2 class="section-title reveal">Travaillons ensemble</h2>
-            <p class="section-lead reveal">Disponible pour un stage PFA. Le plus rapide : un email.</p>
+            <div class="eyebrow reveal" data-i18n="contact.eyebrow">Restons en contact</div>
+            <h2 class="section-title reveal" data-i18n="contact.title">Travaillons ensemble</h2>
+            <p class="section-lead reveal" data-i18n="contact.lead">Disponible pour un stage PFA. Pour me joindre rapidement, envoyez-moi un email.</p>
             <div class="contact-grid">
                 <div class="contact-links" id="contactLinks"></div>
                 <form id="contactForm">
-                    <div class="field"><label for="cname">Votre nom</label><input id="cname" type="text" placeholder="Nom complet" required></div>
-                    <div class="field"><label for="cmail">Votre email</label><input id="cmail" type="email" placeholder="nom@email.com" required></div>
-                    <div class="field"><label for="cmsg">Message</label><textarea id="cmsg" placeholder="Bonjour Abdelali, ..." required></textarea></div>
-                    <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">Envoyer le message
+                    <div class="field"><label for="cname" data-i18n="contact.name">Votre nom</label><input id="cname" type="text" placeholder="Nom complet" data-i18n-placeholder="contact.namePlaceholder" required></div>
+                    <div class="field"><label for="cmail" data-i18n="contact.email">Votre email</label><input id="cmail" type="email" placeholder="nom@email.com" data-i18n-placeholder="contact.emailPlaceholder" required></div>
+                    <div class="field"><label for="cmsg" data-i18n="contact.message">Message</label><textarea id="cmsg" placeholder="Bonjour Abdelali, ..." data-i18n-placeholder="contact.messagePlaceholder" required></textarea></div>
+                    <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center"><span data-i18n="contact.send">Envoyer le message</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
         </button>
                 </form>
@@ -2501,19 +2672,19 @@
     <!-- PROJECT GALLERY -->
     <div class="lightbox" id="projectLightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" aria-hidden="true">
         <div class="lightbox-panel" role="document">
-            <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Fermer l'aperçu">
+            <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Fermer l’aperçu" data-i18n-aria="gallery.close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
-            <div class="slider" aria-label="Galerie du projet">
+            <div class="slider" aria-label="Galerie du projet" data-i18n-aria="gallery.label">
                 <div class="slide-stage" id="slideStage" aria-live="polite"></div>
-                <button class="slide-nav prev" id="slidePrev" type="button" aria-label="Image précédente">
+                <button class="slide-nav prev" id="slidePrev" type="button" aria-label="Image précédente" data-i18n-aria="gallery.previous">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
-                <button class="slide-nav next" id="slideNext" type="button" aria-label="Image suivante">
+                <button class="slide-nav next" id="slideNext" type="button" aria-label="Image suivante" data-i18n-aria="gallery.next">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </button>
                 <div class="slide-count" id="slideCount">1 / 1</div>
-                <div class="thumbs" id="slideThumbs" aria-label="Miniatures"></div>
+                <div class="thumbs" id="slideThumbs" aria-label="Miniatures" data-i18n-aria="gallery.thumbnails"></div>
             </div>
             <aside class="lightbox-info" id="lightboxInfo"></aside>
         </div>
@@ -2521,11 +2692,16 @@
 
     <footer>
         <span>© <span id="year"></span> Abdelali Ferhan</span>
-        <span class="mono">Fès, MA</span>
+        <span class="mono" data-i18n="footer.location">Fès, Maroc</span>
     </footer>
 
+    <script src="./js/i18n.js"></script>
     <script>
         /* ---------------- DATA ---------------- */
+        const I18N = window.PortfolioI18n;
+        const localize = value => I18N.localize(value);
+        const translate = (key, values) => I18N.t(key, values);
+
         const NAV = [{
             id: "home",
             label: "Accueil"
@@ -2554,7 +2730,6 @@
             id: "contact",
             label: "Contact"
         }];
-        const TYPED = ["Futur ingénieur Full-Stack", "DevOps & CI/CD", "Passionné par l'IA", "Java / Spring / Angular", "PHP / Laravel / React"];
         const SOCIALS = [{
             label: "LinkedIn",
             href: "https://www.linkedin.com/in/abdelali-ferhan-427671280/",
@@ -2910,7 +3085,7 @@
         }
 
         function projectInitials(title) {
-            return title.split(/[â€”-]/)[0].trim().split(/\s+/).map(w => w[0]).join("").slice(0, 3).toUpperCase() || "AF";
+            return title.split(/[-—–]/)[0].trim().split(/\s+/).map(w => w[0]).join("").slice(0, 3).toUpperCase() || "AF";
         }
 
         function placeholderMarkup(p, hidden = false) {
@@ -2918,7 +3093,8 @@
         }
 
         function mediaLabel(type, count) {
-            return `<span class="media-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${type==="video"?'<path d="M4 5h11v14H4z"/><path d="M15 9l5-3v12l-5-3z"/>':'<path d="M4 5h16v14H4z"/><path d="M8 13l2.5-2.5L16 16"/><circle cx="15" cy="9" r="1.5"/>'}</svg>${type==="video"?"Video":"Galerie"}${count?` - ${count}`:""}</span>`;}
+            const label = type === "video" ? translate("media.video") : translate("media.gallery");
+            return `<span class="media-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${type==="video"?'<path d="M4 5h11v14H4z"/><path d="M15 9l5-3v12l-5-3z"/>':'<path d="M4 5h16v14H4z"/><path d="M8 13l2.5-2.5L16 16"/><circle cx="15" cy="9" r="1.5"/>'}</svg>${label}${count?` · ${count}`:""}</span>`;}
 const TECH_ICONS={
   "Java":"java/java-original.svg",
   "PHP":"php/php-original.svg",
@@ -2969,41 +3145,49 @@ function techIconMarkup(name){
   return `<span class="tech-icon"><img src="${src}" alt="" loading="lazy" decoding="async" onerror="this.remove();this.parentElement.innerHTML='<span class=&quot;fallback&quot;>${fallback}</span>'"></span>`;
 }
 function projectThumb(p){
+  const title=localize(p.title);
   if(p.video&&(p.preview==="video"||!(p.images&&p.images.length))){
     const isMobile=p.cat&&p.cat.includes("mobile");
-    const videoHtml=`<video class="auto-preview" src="${escapeHtml(p.video)}" muted loop playsinline preload="metadata" aria-label="Demo video de ${escapeHtml(p.title)}"></video>`;
+    const videoHtml=`<video class="auto-preview" src="${escapeHtml(p.video)}" muted loop playsinline preload="metadata" aria-label="${escapeHtml(translate("project.videoAria",{title}))}"></video>`;
     const wrappedVideo=isMobile?`<div class="mobile-frame">${videoHtml}</div>`:videoHtml;
     return `${wrappedVideo}${mediaLabel("video",(p.images?.length||0)+1)}`;
   }
   const src=p.images&&p.images[0];
   if(!src)return placeholderMarkup(p);
-  return `<img src="${escapeHtml(src)}" alt="Apercu de ${escapeHtml(p.title)}" loading="lazy" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false">${placeholderMarkup(p,true)}${mediaLabel("image",(p.images?.length||0)+(p.video?1:0))}`;
+  return `<img src="${escapeHtml(src)}" alt="${escapeHtml(translate("project.imageAlt",{title}))}" loading="lazy" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false">${placeholderMarkup({title},true)}${mediaLabel("image",(p.images?.length||0)+(p.video?1:0))}`;
 }
-function buildNav(c,withIdx){c.innerHTML="";NAV.forEach((n,i)=>{const idx=withIdx?`<span class="i">${String(i).padStart(2,'0')}</span>`:"";c.appendChild(el(`<a href="#${n.id}" data-route="${n.id}">${idx}${n.label}</a>`));});}
+function buildNav(c,withIdx){c.innerHTML="";NAV.forEach((n,i)=>{const idx=withIdx?`<span class="i">${String(i).padStart(2,'0')}</span>`:"";c.appendChild(el(`<a href="#${n.id}" data-route="${n.id}">${idx}${escapeHtml(localize(n.label))}</a>`));});}
 buildNav(document.getElementById('hnav'),false);
 buildNav(document.getElementById('mnav'),true);
 function buildSoc(c){c.innerHTML="";SOCIALS.forEach(s=>c.appendChild(el(`<a href="${s.href}" target="_blank" rel="noopener" aria-label="${s.label}">${s.svg}</a>`)));}
 buildSoc(document.getElementById('rail'));buildSoc(document.getElementById('msoc'));
 
 const skillsGrid=document.getElementById('skillsGrid');
-SKILLS.forEach(s=>{const tag=(t,lead=false)=>`<span class="tag ${lead?'lead':''}">${techIconMarkup(t)}<span>${escapeHtml(t)}</span></span>`;const tags=[...s.lead.map(t=>tag(t,true)),...s.items.map(t=>tag(t))].join("");
-skillsGrid.appendChild(el(`<div class="card skill-cat reveal"><div class="cat-head"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">${s.ico}</svg></span><h3>${s.cat}</h3></div><div class="tags">${tags}</div></div>`));});
+function renderSkills(){
+  skillsGrid.innerHTML="";
+  SKILLS.forEach(s=>{const tag=(value,lead=false)=>`<span class="tag ${lead?'lead':''}">${techIconMarkup(value)}<span>${escapeHtml(localize(value))}</span></span>`;const tags=[...s.lead.map(value=>tag(value,true)),...s.items.map(value=>tag(value))].join("");
+  skillsGrid.appendChild(el(`<div class="card skill-cat reveal"><div class="cat-head"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">${s.ico}</svg></span><h3>${escapeHtml(localize(s.cat))}</h3></div><div class="tags">${tags}</div></div>`));});
+}
+renderSkills();
 
 const aboutTechMarquee=document.getElementById('aboutTechMarquee');
 if(aboutTechMarquee){
   const aboutTech=["Java","Spring Boot","PHP","Laravel","Angular","React.js","Docker","CI/CD","Microservices","Machine Learning"];
-  const track=aboutTech.map(t=>`<span class="tech-chip">${techIconMarkup(t)}<span>${escapeHtml(t)}</span></span>`).join("");
+  const track=aboutTech.map(t=>`<span class="tech-chip">${techIconMarkup(t)}<span>${escapeHtml(localize(t))}</span></span>`).join("");
   aboutTechMarquee.innerHTML=`<div class="tech-track">${track}</div><div class="tech-track" aria-hidden="true">${track}</div>`;
 }
 
 const filtersBox=document.getElementById('filters');
-CATS.forEach((c,i)=>filtersBox.appendChild(el(`<button class="filter ${i===0?'active':''}" data-filter="${c.id}">${c.label}</button>`)));
+let activeFilter='all';
+function renderFilters(){filtersBox.innerHTML="";CATS.forEach(c=>filtersBox.appendChild(el(`<button class="filter ${c.id===activeFilter?'active':''}" data-filter="${c.id}">${escapeHtml(localize(c.label))}</button>`)));}
+renderFilters();
 const projectsGrid=document.getElementById('projectsGrid');
 function renderProjects(f){projectsGrid.innerHTML="";PROJECTS.forEach((p,i)=>{if(f!=='all'&&!p.cat.includes(f))return;
-  const stack=p.stack.map(t=>`<span>${t}</span>`).join("");const flag=p.flag?`<span class="flag">${p.flag}</span>`:"";
+  const title=localize(p.title),description=localize(p.desc),category=localize(p.catLabel);
+  const stack=p.stack.map(value=>`<span>${escapeHtml(localize(value))}</span>`).join("");const flag=p.flag?`<span class="flag">${escapeHtml(p.flag)}</span>`:"";
   const mediaCount=(p.images?.length||0)+(p.video?1:0);
-  const links=p.github?`<div class="links"><a href="${p.github}" target="_blank" rel="noopener" aria-label="Voir le code de ${escapeHtml(p.title)}">Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>`:"";
-  projectsGrid.appendChild(el(`<article class="card proj reveal" data-project="${i}"><span class="glow"></span>${flag}<div class="proj-media">${projectThumb(p)}</div><div class="proj-body"><div class="top"><span class="badge-cat">${p.catLabel}</span><span class="yr">${p.year}</span></div><h3>${p.title}</h3><p>${p.desc}</p><div class="stack">${stack}</div><div class="actions"><button class="preview-btn" type="button" aria-label="Ouvrir l'apercu du projet ${escapeHtml(p.title)}">Apercu${mediaCount?` (${mediaCount})`:""} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>${links}</div></div></article>`));
+  const links=p.github?`<div class="links"><a href="${p.github}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("project.codeAria",{title}))}">${escapeHtml(translate("project.code"))} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>`:"";
+  projectsGrid.appendChild(el(`<article class="card proj reveal" data-project="${i}"><span class="glow"></span>${flag}<div class="proj-media">${projectThumb(p)}</div><div class="proj-body"><div class="top"><span class="badge-cat">${escapeHtml(category)}</span><span class="yr">${escapeHtml(p.year)}</span></div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}</p><div class="stack">${stack}</div><div class="actions"><button class="preview-btn" type="button" aria-label="${escapeHtml(translate("project.previewAria",{title}))}">${escapeHtml(translate("project.preview"))}${mediaCount?` (${mediaCount})`:""} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>${links}</div></div></article>`));
 });staggerReveal(projectsGrid);wireAutoPreviews();}
 let previewObserver=null;
 function wireAutoPreviews(){
@@ -3018,7 +3202,7 @@ function wireAutoPreviews(){
   videos.forEach(video=>previewObserver.observe(video));
 }
 renderProjects('all');
-filtersBox.addEventListener('click',e=>{const b=e.target.closest('.filter');if(!b)return;filtersBox.querySelectorAll('.filter').forEach(f=>f.classList.remove('active'));b.classList.add('active');renderProjects(b.dataset.filter);});
+filtersBox.addEventListener('click',e=>{const b=e.target.closest('.filter');if(!b)return;activeFilter=b.dataset.filter;renderFilters();renderProjects(activeFilter);});
 
 const lightbox=document.getElementById('projectLightbox');
 const lightboxClose=document.getElementById('lightboxClose');
@@ -3031,23 +3215,25 @@ const slideNext=document.getElementById('slideNext');
 let activeProject=null,activeMedia=[],activeSlide=0,lastFocus=null,touchStartX=0;
 function projectMedia(p){return [...(p.images||[]).map(src=>({type:"image",src})),...(p.video?[{type:"video",src:p.video}]:[])];}
 function renderLightboxInfo(p){
+  const title=localize(p.title),description=localize(p.desc),category=localize(p.catLabel);
   const stack=p.stack.map(t=>`<span>${escapeHtml(t)}</span>`).join("");
-  const link=p.github?`<div class="links"><a href="${p.github}" target="_blank" rel="noopener">Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>`:"";
-  lightboxInfo.innerHTML=`<span class="badge-cat">${escapeHtml(p.catLabel)}</span><h3 id="lightboxTitle">${escapeHtml(p.title)}</h3><p>${escapeHtml(p.desc)}</p><div class="stack">${stack}</div>${link}`;
+  const link=p.github?`<div class="links"><a href="${p.github}" target="_blank" rel="noopener">${escapeHtml(translate("project.code"))} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>`:"";
+  lightboxInfo.innerHTML=`<span class="badge-cat">${escapeHtml(category)}</span><h3 id="lightboxTitle">${escapeHtml(title)}</h3><p>${escapeHtml(description)}</p><div class="stack">${stack}</div>${link}`;
 }
 function renderSlide(){
   const p=activeProject;
+  const title=localize(p.title);
   const item=activeMedia[activeSlide];
   if(!item){
-    slideStage.innerHTML=placeholderMarkup(p);
-    slideCount.textContent="Aperçu";
+    slideStage.innerHTML=placeholderMarkup({title});
+    slideCount.textContent=translate("gallery.preview");
   }else if(item.type==="video"){
     const isMobile=p.cat&&p.cat.includes("mobile");
-    const videoHtml=`<video src="${escapeHtml(item.src)}" controls playsinline preload="metadata" aria-label="Vidéo de ${escapeHtml(p.title)}"></video>`;
+    const videoHtml=`<video src="${escapeHtml(item.src)}" controls playsinline preload="metadata" aria-label="${escapeHtml(translate("gallery.videoAria",{title}))}"></video>`;
     slideStage.innerHTML=isMobile?`<div class="mobile-frame" style="display:flex;justify-content:center;align-items:center;width:100%;height:100%">${videoHtml}</div>`:videoHtml;
     slideCount.textContent=`${activeSlide+1} / ${activeMedia.length}`;
   }else{
-    slideStage.innerHTML=`<img src="${escapeHtml(item.src)}" alt="${escapeHtml(p.title)} â€” capture ${activeSlide+1}" loading="lazy" decoding="async" onerror="this.replaceWith(el(placeholderMarkup(activeProject)))">`;
+    slideStage.innerHTML=`<img src="${escapeHtml(item.src)}" alt="${escapeHtml(translate("gallery.captureAlt",{title,number:activeSlide+1}))}" loading="lazy" decoding="async" onerror="this.replaceWith(el(placeholderMarkup({title:localize(activeProject.title)})))">`;
     slideCount.textContent=`${activeSlide+1} / ${activeMedia.length}`;
   }
   slideThumbs.querySelectorAll('.thumb').forEach((b,i)=>b.setAttribute('aria-current',String(i===activeSlide)));
@@ -3058,8 +3244,8 @@ function setSlide(i){if(!activeProject)return;activeSlide=(i+activeMedia.length)
 function renderThumbs(p){
   slideThumbs.innerHTML="";
   activeMedia.forEach((m,i)=>{
-    const inside=m.type==="video"?placeholderMarkup({title:"MP4"}):`<img src="${escapeHtml(m.src)}" alt="" loading="lazy" decoding="async" onerror="this.replaceWith(el(placeholderMarkup(activeProject)))">`;
-    slideThumbs.appendChild(el(`<button class="thumb" type="button" aria-label="Aller Ã  la capture ${i+1}" aria-current="${i===0}">${inside}</button>`));
+    const inside=m.type==="video"?placeholderMarkup({title:"MP4"}):`<img src="${escapeHtml(m.src)}" alt="" loading="lazy" decoding="async" onerror="this.replaceWith(el(placeholderMarkup({title:localize(activeProject.title)})))">`;
+    slideThumbs.appendChild(el(`<button class="thumb" type="button" aria-label="${escapeHtml(translate("gallery.captureAria",{number:i+1}))}" aria-current="${i===0}">${inside}</button>`));
   });
 }
 function openProject(index){
@@ -3095,36 +3281,49 @@ slideStage.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-
 document.addEventListener('keydown',focusTrap);
 
 const expTL=document.getElementById('expTimeline');
-EXPERIENCE.forEach(x=>{const pts=x.points.map(p=>`<li>${p}</li>`).join("");const st=x.stack&&x.stack.length?`<div class="stack">${x.stack.map(s=>`<span>${s}</span>`).join("")}</div>`:"";expTL.appendChild(el(`<div class="tl-item reveal"><span class="node"></span><div class="when">${x.when}</div><h3>${x.title}</h3><div class="org">${x.org}</div><ul>${pts}</ul>${st}</div>`));});
 const eduTL=document.getElementById('eduTimeline');
-EDUCATION.forEach(x=>{const pts=x.points.map(p=>`<li>${p}</li>`).join("");eduTL.appendChild(el(`<div class="tl-item reveal"><span class="node"></span><div class="when">${x.when}</div><h3>${x.title}</h3><div class="org">${x.org}</div><ul>${pts}</ul></div>`));});
 const awardsGrid=document.getElementById('awardsGrid');
-AWARDS.forEach(a=>awardsGrid.appendChild(el(`<div class="card award reveal"><span class="medal">${a.medal}</span><div><h3>${a.title}</h3><div class="meta">${a.meta}</div><p>${a.desc}</p></div></div>`)));
 const certGrid=document.getElementById('certGrid');
-CERTS.forEach((c,i)=>{
-  const rank=String(i+1).padStart(2,'0');
-  const meta=(c.meta||[]).map(m=>`<span>${escapeHtml(m)}</span>`).join("");
-  const tags=(c.tags||[]).map(t=>`<span>${escapeHtml(t)}</span>`).join("");
-  certGrid.appendChild(el(`<article class="card cert-card ${i===0?'featured-cert':''} reveal">
-    <a class="cert-thumb" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="Ouvrir la preuve ${escapeHtml(c.title)}">
-      <img src="${escapeHtml(c.thumb)}" alt="Apercu du certificat ${escapeHtml(c.title)}" loading="lazy" decoding="async">
-      <span class="cert-level">${escapeHtml(c.level)}</span>
-    </a>
-    <div class="cert-content">
-      <div class="cert-topline"><span>#${rank}</span><span>${escapeHtml(c.issuer)}</span></div>
-      <div class="cert-title-row">
-        <h3><a href="${escapeHtml(c.proof)}" target="_blank" rel="noopener">${escapeHtml(c.title)}</a></h3>
-        <a class="cert-proof" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="Voir la preuve de ${escapeHtml(c.title)}">Preuve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-      </div>
-      <p class="cert-desc">${escapeHtml(c.desc)}</p>
-      <div class="cert-meta">${meta}</div>
-      <div class="cert-tags">${tags}</div>
-    </div>
-  </article>`));
-});
 const contactLinks=document.getElementById('contactLinks');
-CONTACTS.forEach(c=>{const ext=c.href.startsWith('http')?'target="_blank" rel="noopener"':'';contactLinks.appendChild(el(`<a class="clink reveal" href="${c.href}" ${ext}><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${c.svg}</svg></span><span><span class="k">${c.k}</span><br><span class="v">${c.v}</span></span></a>`));});
-document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();const n=cname.value,m=cmail.value,msg=cmsg.value;window.location.href=`mailto:ferhanabdelali@gmail.com?subject=${encodeURIComponent('Contact portfolio â€” '+n)}&body=${encodeURIComponent(msg+'\\n\\nâ€” '+n+' ('+m+')')}`;});
+
+function renderProfileData(){
+  expTL.innerHTML="";
+  EXPERIENCE.forEach(x=>{const pts=x.points.map(p=>`<li>${escapeHtml(localize(p))}</li>`).join("");const st=x.stack&&x.stack.length?`<div class="stack">${x.stack.map(s=>`<span>${escapeHtml(s)}</span>`).join("")}</div>`:"";expTL.appendChild(el(`<div class="tl-item reveal"><span class="node"></span><div class="when">${escapeHtml(localize(x.when))}</div><h3>${escapeHtml(localize(x.title))}</h3><div class="org">${escapeHtml(localize(x.org))}</div><ul>${pts}</ul>${st}</div>`));});
+
+  eduTL.innerHTML="";
+  EDUCATION.forEach(x=>{const pts=x.points.map(p=>`<li>${escapeHtml(localize(p))}</li>`).join("");eduTL.appendChild(el(`<div class="tl-item reveal"><span class="node"></span><div class="when">${escapeHtml(localize(x.when))}</div><h3>${escapeHtml(localize(x.title))}</h3><div class="org">${escapeHtml(localize(x.org))}</div><ul>${pts}</ul></div>`));});
+
+  awardsGrid.innerHTML="";
+  AWARDS.forEach(a=>awardsGrid.appendChild(el(`<div class="card award reveal"><span class="medal">${a.medal}</span><div><h3>${escapeHtml(localize(a.title))}</h3><div class="meta">${escapeHtml(localize(a.meta))}</div><p>${escapeHtml(localize(a.desc))}</p></div></div>`)));
+
+  certGrid.innerHTML="";
+  CERTS.forEach((c,i)=>{
+    const rank=String(i+1).padStart(2,'0'),title=localize(c.title);
+    const meta=(c.meta||[]).map(m=>`<span>${escapeHtml(localize(m))}</span>`).join("");
+    const tags=(c.tags||[]).map(value=>`<span>${escapeHtml(localize(value))}</span>`).join("");
+    certGrid.appendChild(el(`<article class="card cert-card ${i===0?'featured-cert':''} reveal">
+      <a class="cert-thumb" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("cert.openProof",{title}))}">
+        <img src="${escapeHtml(c.thumb)}" alt="${escapeHtml(translate("cert.previewAlt",{title}))}" loading="lazy" decoding="async">
+        <span class="cert-level">${escapeHtml(localize(c.level))}</span>
+      </a>
+      <div class="cert-content">
+        <div class="cert-topline"><span>#${rank}</span><span>${escapeHtml(localize(c.issuer))}</span></div>
+        <div class="cert-title-row">
+          <h3><a href="${escapeHtml(c.proof)}" target="_blank" rel="noopener">${escapeHtml(title)}</a></h3>
+          <a class="cert-proof" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("cert.viewProof",{title}))}">${escapeHtml(translate("cert.proof"))} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+        <p class="cert-desc">${escapeHtml(localize(c.desc))}</p>
+        <div class="cert-meta">${meta}</div>
+        <div class="cert-tags">${tags}</div>
+      </div>
+    </article>`));
+  });
+
+  contactLinks.innerHTML="";
+  CONTACTS.forEach(c=>{const ext=c.href.startsWith('http')?'target="_blank" rel="noopener"':'';contactLinks.appendChild(el(`<a class="clink reveal" href="${c.href}" ${ext}><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${c.svg}</svg></span><span><span class="k">${escapeHtml(localize(c.k))}</span><br><span class="v">${escapeHtml(c.v)}</span></span></a>`));});
+}
+renderProfileData();
+document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();const n=cname.value,m=cmail.value,msg=cmsg.value;const subject=translate('contact.mailSubject',{name:n});window.location.href=`mailto:ferhanabdelali@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg+'\\n\\n— '+n+' ('+m+')')}`;});
 document.getElementById('year').textContent=new Date().getFullYear();
 
 /* ---------------- ROUTING ---------------- */
@@ -3151,8 +3350,38 @@ document.getElementById('burger').addEventListener('click',openMenu);
 document.getElementById('menuClose').addEventListener('click',closeMenu);
 
 /* ---------------- TYPED ---------------- */
-(function(){const node=document.getElementById('typed');let wi=0,ci=0,del=false;
-function tick(){const w=TYPED[wi];if(!del){node.textContent=w.slice(0,++ci);if(ci===w.length){del=true;return setTimeout(tick,1500);}}else{node.textContent=w.slice(0,--ci);if(ci===0){del=false;wi=(wi+1)%TYPED.length;}}setTimeout(tick,del?45:85);}tick();})();
+let typedGeneration=0;
+function startTyped(){
+  const generation=++typedGeneration,node=document.getElementById('typed'),words=I18N.typed();
+  let wi=0,ci=0,del=false;
+  node.textContent="";
+  function tick(){
+    if(generation!==typedGeneration)return;
+    const word=words[wi];
+    if(!del){node.textContent=word.slice(0,++ci);if(ci===word.length){del=true;return setTimeout(tick,1500);}}
+    else{node.textContent=word.slice(0,--ci);if(ci===0){del=false;wi=(wi+1)%words.length;}}
+    setTimeout(tick,del?45:85);
+  }
+  tick();
+}
+
+/* ---------------- LANGUAGE ---------------- */
+function applyLanguage(language,updateUrl=true){
+  I18N.setLanguage(language,{updateUrl});
+  document.querySelectorAll('[data-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.language===language)));
+  buildNav(document.getElementById('hnav'),false);
+  buildNav(document.getElementById('mnav'),true);
+  renderSkills();renderFilters();renderProjects(activeFilter);renderProfileData();
+  if(activeProject){renderLightboxInfo(activeProject);renderThumbs(activeProject);renderSlide();}
+  const route=(location.hash||'#home').slice(1),activeView=document.getElementById('view-'+route);
+  setActiveNav(route);if(activeView)staggerReveal(activeView);
+  startTyped();
+}
+
+document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>applyLanguage(button.dataset.language)));
+document.addEventListener('click',event=>document.querySelectorAll('.cv-picker[open]').forEach(picker=>{if(!picker.contains(event.target))picker.removeAttribute('open');}));
+document.querySelectorAll('.cv-options a').forEach(link=>link.addEventListener('click',()=>link.closest('.cv-picker')?.removeAttribute('open')));
+document.addEventListener('keydown',event=>{if(event.key==='Escape')document.querySelectorAll('.cv-picker[open]').forEach(picker=>picker.removeAttribute('open'));});
 
 /* ---------------- PARTICLE BACKGROUND ---------------- */
 (function(){
@@ -3182,12 +3411,9 @@ function tick(){const w=TYPED[wi];if(!del){node.textContent=w.slice(0,++ci);if(c
   start();
 })();
 
+applyLanguage(I18N.getLanguage(),false);
 navigate((location.hash||'#home').slice(1),false);
     </script>
-</body>
-
-</html>
-</script>
 </body>
 
 </html>
