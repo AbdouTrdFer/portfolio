@@ -1716,6 +1716,14 @@
             justify-content: space-between;
             gap: 12px
         }
+
+        .cert-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+            flex-shrink: 0
+        }
         
         .cert-title-row h3 {
             font-family: var(--display);
@@ -2472,7 +2480,7 @@
                 </summary>
                 <div class="cv-options">
                     <a href="./FERHAN_Abdelali-.pdf" target="_blank" rel="noopener" hreflang="fr"><span data-i18n="cv.fr">CV en français</span><small>FR</small></a>
-                    <a href="./FERHAN_Abdelali_EN.pdf" target="_blank" rel="noopener" hreflang="en"><span data-i18n="cv.en">CV in English</span><small>EN</small></a>
+                    <a href="./FERHAN_Abdelali_LatestVersion.pdf" target="_blank" rel="noopener" hreflang="en"><span data-i18n="cv.en">CV in English</span><small>EN</small></a>
                 </div>
             </details>
             <button class="burger" id="burger" aria-label="Ouvrir le menu" data-i18n-aria="menu.open">
@@ -2490,7 +2498,7 @@
         <nav id="mnav"></nav>
         <div class="menu-cv">
             <a href="./FERHAN_Abdelali-.pdf" target="_blank" rel="noopener" hreflang="fr" data-i18n="cv.fr">CV en français</a>
-            <a href="./FERHAN_Abdelali_EN.pdf" target="_blank" rel="noopener" hreflang="en" data-i18n="cv.en">CV in English</a>
+            <a href="./FERHAN_Abdelali_LatestVersion.pdf" target="_blank" rel="noopener" hreflang="en" data-i18n="cv.en">CV in English</a>
         </div>
         <div class="msoc" id="msoc"></div>
     </div>
@@ -2514,7 +2522,7 @@
                             </summary>
                             <div class="cv-options">
                                 <a href="./FERHAN_Abdelali-.pdf" target="_blank" rel="noopener" hreflang="fr"><span data-i18n="cv.fr">CV en français</span><small>FR</small></a>
-                                <a href="./FERHAN_Abdelali_EN.pdf" target="_blank" rel="noopener" hreflang="en"><span data-i18n="cv.en">CV in English</span><small>EN</small></a>
+                                <a href="./FERHAN_Abdelali_LatestVersion.pdf" target="_blank" rel="noopener" hreflang="en"><span data-i18n="cv.en">CV in English</span><small>EN</small></a>
                             </div>
                         </details>
                         <a class="btn btn-ghost" href="#projects" data-route="projects"><span data-i18n="hero.projects">Voir mes projets</span>
@@ -2535,7 +2543,7 @@
                             <div class="l" data-i18n="hero.stat.awards">Victoires / podiums</div>
                         </div>
                         <div class="stat">
-                            <div class="n">7</div>
+                            <div class="n">8</div>
                             <div class="l" data-i18n="hero.stat.certs">Certifications vérifiées</div>
                         </div>
                     </div>
@@ -2632,7 +2640,7 @@
         <section class="view" id="view-certs" data-view="certs">
             <div class="eyebrow reveal" data-i18n="certs.eyebrow">Certifications &amp; langues</div>
             <h2 class="section-title reveal" data-i18n="certs.title">Certifications vérifiées</h2>
-            <p class="section-lead reveal" data-i18n="certs.lead">Chaque certification renvoie vers sa preuve : Oracle, DevOps, full-stack, UI/UX et hackathon.</p>
+            <p class="section-lead reveal" data-i18n="certs.lead">Chaque certification renvoie vers sa preuve : Oracle, IA agentique, DevOps, full-stack, UI/UX et hackathon.</p>
             <div class="cert-grid" id="certGrid"></div>
             <h3 class="subsection-title reveal" data-i18n="certs.languages">Langues</h3>
             <div class="lang-bar">
@@ -2979,6 +2987,16 @@
             proof: "./certifs/java_se_17.png",
             thumb: "./certifs/thumbs/java-se-17.jpg"
         }, {
+            level: "Certification Oracle",
+            title: "Agentic AI Certified Foundations Associate",
+            issuer: "Oracle University",
+            desc: "Certification Oracle sur les agents IA, de leur conception avec LangChain et le SDK OpenAI Agents à l’utilisation de MCP, OCI Enterprise AI Agents et Oracle AI Database.",
+            meta: ["Oracle University", "AI agents", "LangChain · OpenAI SDK · MCP"],
+            tags: ["Agentic AI", "AI Agents", "MCP", "OCI"],
+            proof: "./certifs/Agentic%20AI%20Certified%20Foundations%20Associate.pdf",
+            badge: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=722DB3DBC05299C9D81413542406231A3EAFEEEBB4B8F60F537000EC556E51CA",
+            thumb: "./certifs/thumbs/oracle-agentic-ai-foundations.png"
+        }, {
             level: "DevOps",
             title: "GitLab CI/CD: Architecting, Deploying, and Optimizing Pipelines",
             issuer: "KodeKloud",
@@ -3301,6 +3319,7 @@ function renderProfileData(){
     const rank=String(i+1).padStart(2,'0'),title=localize(c.title);
     const meta=(c.meta||[]).map(m=>`<span>${escapeHtml(localize(m))}</span>`).join("");
     const tags=(c.tags||[]).map(value=>`<span>${escapeHtml(localize(value))}</span>`).join("");
+    const badgeLink=c.badge?`<a class="cert-proof" href="${escapeHtml(c.badge)}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("cert.viewBadge",{title}))}">${escapeHtml(translate("cert.badge"))} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>`:"";
     certGrid.appendChild(el(`<article class="card cert-card ${i===0?'featured-cert':''} reveal">
       <a class="cert-thumb" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("cert.openProof",{title}))}">
         <img src="${escapeHtml(c.thumb)}" alt="${escapeHtml(translate("cert.previewAlt",{title}))}" loading="lazy" decoding="async">
@@ -3310,7 +3329,10 @@ function renderProfileData(){
         <div class="cert-topline"><span>#${rank}</span><span>${escapeHtml(localize(c.issuer))}</span></div>
         <div class="cert-title-row">
           <h3><a href="${escapeHtml(c.proof)}" target="_blank" rel="noopener">${escapeHtml(title)}</a></h3>
-          <a class="cert-proof" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("cert.viewProof",{title}))}">${escapeHtml(translate("cert.proof"))} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <div class="cert-actions">
+            <a class="cert-proof" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("cert.viewProof",{title}))}">${escapeHtml(translate("cert.proof"))} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            ${badgeLink}
+          </div>
         </div>
         <p class="cert-desc">${escapeHtml(localize(c.desc))}</p>
         <div class="cert-meta">${meta}</div>

@@ -53,7 +53,7 @@
             "achievements.lead": "Hackathons, concours de pitch et engagement associatif.",
             "certs.eyebrow": "Certifications & langues",
             "certs.title": "Certifications vérifiées",
-            "certs.lead": "Chaque certification renvoie vers sa preuve : Oracle, DevOps, full-stack, UI/UX et hackathon.",
+            "certs.lead": "Chaque certification renvoie vers sa preuve : Oracle, IA agentique, DevOps, full-stack, UI/UX et hackathon.",
             "certs.languages": "Langues",
             "language.arabic": "Arabe",
             "language.french": "Français",
@@ -94,6 +94,8 @@
             "cert.previewAlt": "Aperçu du certificat {title}",
             "cert.viewProof": "Voir la preuve : {title}",
             "cert.proof": "Preuve",
+            "cert.viewBadge": "Voir le badge Oracle de {title}",
+            "cert.badge": "Badge Oracle",
             "contact.mailSubject": "Contact portfolio — {name}",
             "footer.location": "Fès, Maroc"
         },
@@ -148,7 +150,7 @@
             "achievements.lead": "Hackathon wins, pitch competitions, and student-community leadership.",
             "certs.eyebrow": "Credentials & languages",
             "certs.title": "Verified certifications",
-            "certs.lead": "Every credential links to its proof—from Oracle and DevOps to full-stack, UI/UX, and hackathons.",
+            "certs.lead": "Every credential links to its proof—from Oracle and agentic AI to DevOps, full-stack, UI/UX, and hackathons.",
             "certs.languages": "Languages",
             "language.arabic": "Arabic",
             "language.french": "French",
@@ -189,6 +191,8 @@
             "cert.previewAlt": "Preview of the {title} certificate",
             "cert.viewProof": "View proof for {title}",
             "cert.proof": "View proof",
+            "cert.viewBadge": "View Oracle badge for {title}",
+            "cert.badge": "Oracle badge",
             "contact.mailSubject": "Portfolio enquiry — {name}",
             "footer.location": "Fes, Morocco"
         }
@@ -286,6 +290,7 @@
         "Organisation d'événements tech, encadrement de projets et animation de la communauté étudiante.": "Organize technology events, mentor project teams, and help grow an active student innovation community.",
 
         "Certification Oracle": "Oracle Certification",
+        "Certification Oracle sur les agents IA, de leur conception avec LangChain et le SDK OpenAI Agents à l’utilisation de MCP, OCI Enterprise AI Agents et Oracle AI Database.": "Oracle certification covering AI agents, from building them with LangChain and the OpenAI Agents SDK to using MCP, OCI Enterprise AI Agents, and Oracle AI Database.",
         "Certification professionnelle Java SE 17 : le signal le plus fort pour les rôles backend, full-stack Java et architecture logicielle.": "Professional Java SE 17 certification validating advanced skills for backend engineering, full-stack Java, and software architecture roles.",
         "24 fév. 2026": "Feb. 24, 2026",
         "Formation CI/CD orientée architecture de pipelines, déploiement et optimisation des workflows GitLab.": "Hands-on CI/CD training focused on pipeline architecture, deployment strategy, and optimized GitLab workflows.",
