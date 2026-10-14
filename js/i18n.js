@@ -291,6 +291,10 @@
 
         "Certification Oracle": "Oracle Certification",
         "Certification Oracle sur les agents IA, de leur conception avec LangChain et le SDK OpenAI Agents à l’utilisation de MCP, OCI Enterprise AI Agents et Oracle AI Database.": "Oracle certification covering AI agents, from building them with LangChain and the OpenAI Agents SDK to using MCP, OCI Enterprise AI Agents, and Oracle AI Database.",
+        "Certification Oracle validant les connaissances fondamentales d’OCI : principaux services cloud, sécurité et identité, conformité, gouvernance, administration et gestion des coûts.": "Oracle certification validating foundational OCI knowledge, including core cloud services, security and identity, compliance, governance, administration, and cost management.",
+        "Cloud foundations": "Cloud foundations",
+        "Cloud Foundations": "Cloud Foundations",
+        "Sécurité": "Security",
         "Certification professionnelle Java SE 17 : le signal le plus fort pour les rôles backend, full-stack Java et architecture logicielle.": "Professional Java SE 17 certification validating advanced skills for backend engineering, full-stack Java, and software architecture roles.",
         "24 fév. 2026": "Feb. 24, 2026",
         "Formation CI/CD orientée architecture de pipelines, déploiement et optimisation des workflows GitLab.": "Hands-on CI/CD training focused on pipeline architecture, deployment strategy, and optimized GitLab workflows.",
