@@ -1717,10 +1717,14 @@
             gap: 12px
         }
 
+        .cert-title-row.has-badge {
+            flex-direction: column
+        }
+
         .cert-actions {
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-end;
+            justify-content: flex-start;
             gap: 8px;
             flex-shrink: 0
         }
@@ -3327,7 +3331,7 @@ function renderProfileData(){
       </a>
       <div class="cert-content">
         <div class="cert-topline"><span>#${rank}</span><span>${escapeHtml(localize(c.issuer))}</span></div>
-        <div class="cert-title-row">
+        <div class="cert-title-row ${c.badge?'has-badge':''}">
           <h3><a href="${escapeHtml(c.proof)}" target="_blank" rel="noopener">${escapeHtml(title)}</a></h3>
           <div class="cert-actions">
             <a class="cert-proof" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("cert.viewProof",{title}))}">${escapeHtml(translate("cert.proof"))} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
