@@ -1648,6 +1648,14 @@
             border-bottom: 1px solid var(--border);
             background: #f4f7fa
         }
+
+        .cert-credly-thumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: auto;
+            height: 270px
+        }
         
         .cert-thumb img {
             width: 100%;
@@ -2644,7 +2652,7 @@
         <section class="view" id="view-certs" data-view="certs">
             <div class="eyebrow reveal" data-i18n="certs.eyebrow">Certifications &amp; langues</div>
             <h2 class="section-title reveal" data-i18n="certs.title">Certifications vérifiées</h2>
-            <p class="section-lead reveal" data-i18n="certs.lead">Chaque certification renvoie vers sa preuve : Oracle, IA agentique, DevOps, full-stack, UI/UX et hackathon.</p>
+            <p class="section-lead reveal" data-i18n="certs.lead">Chaque certification renvoie vers sa preuve : Oracle, AWS, IA agentique, DevOps, full-stack, UI/UX et hackathon.</p>
             <div class="cert-grid" id="certGrid"></div>
             <h3 class="subsection-title reveal" data-i18n="certs.languages">Langues</h3>
             <div class="lang-bar">
@@ -2991,6 +2999,17 @@
             proof: "./certifs/java_se_17.png",
             thumb: "./certifs/thumbs/java-se-17.jpg"
         }, {
+            level: "Cloud",
+            title: "AWS Educate Introduction to Cloud 101 - Training Badge",
+            issuer: "AWS Educate",
+            desc: "Formation AWS Educate couvrant les concepts fondamentaux du cloud computing.",
+            meta: ["AWS Educate", "Cloud 101", "Training Badge"],
+            tags: ["AWS", "Cloud", "Foundations"],
+            proof: "https://www.credly.com/badges/6fa9aac5-8f68-4445-bf4e-c51dc52c9e22/public_url",
+            badge: "https://www.credly.com/badges/6fa9aac5-8f68-4445-bf4e-c51dc52c9e22/public_url",
+            badgeProvider: "Credly",
+            credlyBadgeId: "6fa9aac5-8f68-4445-bf4e-c51dc52c9e22"
+        }, {
             level: "Certification Oracle",
             title: "Agentic AI Certified Foundations Associate",
             issuer: "Oracle University",
@@ -3333,12 +3352,16 @@ function renderProfileData(){
     const rank=String(i+1).padStart(2,'0'),title=localize(c.title);
     const meta=(c.meta||[]).map(m=>`<span>${escapeHtml(localize(m))}</span>`).join("");
     const tags=(c.tags||[]).map(value=>`<span>${escapeHtml(localize(value))}</span>`).join("");
-    const badgeLink=c.badge?`<a class="cert-proof" href="${escapeHtml(c.badge)}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("cert.viewBadge",{title}))}">${escapeHtml(translate("cert.badge"))} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>`:"";
-    certGrid.appendChild(el(`<article class="card cert-card ${i===0?'featured-cert':''} reveal">
-      <a class="cert-thumb" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("cert.openProof",{title}))}">
+    const badgeProvider=localize(c.badgeProvider||"Oracle");
+    const badgeLink=c.badge?`<a class="cert-proof" href="${escapeHtml(c.badge)}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("cert.viewBadge",{title,provider:badgeProvider}))}">${escapeHtml(translate("cert.badge",{provider:badgeProvider}))} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>`:"";
+    const certPreview=c.credlyBadgeId
+      ? `<div class="cert-thumb cert-credly-thumb"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="${escapeHtml(c.credlyBadgeId)}" data-share-badge-host="https://www.credly.com"></div><span class="cert-level">${escapeHtml(localize(c.level))}</span></div>`
+      : `<a class="cert-thumb" href="${escapeHtml(c.proof)}" target="_blank" rel="noopener" aria-label="${escapeHtml(translate("cert.openProof",{title}))}">
         <img src="${escapeHtml(c.thumb)}" alt="${escapeHtml(translate("cert.previewAlt",{title}))}" loading="lazy" decoding="async">
         <span class="cert-level">${escapeHtml(localize(c.level))}</span>
-      </a>
+      </a>`;
+    certGrid.appendChild(el(`<article class="card cert-card ${i===0?'featured-cert':''} reveal">
+      ${certPreview}
       <div class="cert-content">
         <div class="cert-topline"><span>#${rank}</span><span>${escapeHtml(localize(c.issuer))}</span></div>
         <div class="cert-title-row ${c.badge?'has-badge':''}">
@@ -3450,6 +3473,7 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape')document.que
 applyLanguage(I18N.getLanguage(),false);
 navigate((location.hash||'#home').slice(1),false);
     </script>
-</body>
+        <script async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
+    </body>
 
 </html>
