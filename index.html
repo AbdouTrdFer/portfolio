@@ -2491,8 +2491,8 @@
                     <span data-i18n="cv.open">CV</span>
                 </summary>
                 <div class="cv-options">
-                    <a href="./FERHAN_Abdelali-.pdf" target="_blank" rel="noopener" hreflang="fr"><span data-i18n="cv.fr">CV en français</span><small>FR</small></a>
-                    <a href="./FERHAN_Abdelali_LatestVersion.pdf" target="_blank" rel="noopener" hreflang="en"><span data-i18n="cv.en">CV in English</span><small>EN</small></a>
+                    <a href="./New_CVS/FERHAN_Forum.pdf" target="_blank" rel="noopener" hreflang="fr"><span data-i18n="cv.fr">CV en français</span><small>FR</small></a>
+                    <a href="./New_CVS/FERHAN_Fo_EN.pdf" target="_blank" rel="noopener" hreflang="en"><span data-i18n="cv.en">CV in English</span><small>EN</small></a>
                 </div>
             </details>
             <button class="burger" id="burger" aria-label="Ouvrir le menu" data-i18n-aria="menu.open">
@@ -2509,8 +2509,8 @@
         <button class="x" id="menuClose" aria-label="Fermer le menu" data-i18n-aria="menu.close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
         <nav id="mnav"></nav>
         <div class="menu-cv">
-            <a href="./FERHAN_Abdelali-.pdf" target="_blank" rel="noopener" hreflang="fr" data-i18n="cv.fr">CV en français</a>
-            <a href="./FERHAN_Abdelali_LatestVersion.pdf" target="_blank" rel="noopener" hreflang="en" data-i18n="cv.en">CV in English</a>
+            <a href="./New_CVS/FERHAN_Forum.pdf" target="_blank" rel="noopener" hreflang="fr" data-i18n="cv.fr">CV en français</a>
+            <a href="./New_CVS/FERHAN_Fo_EN.pdf" target="_blank" rel="noopener" hreflang="en" data-i18n="cv.en">CV in English</a>
         </div>
         <div class="msoc" id="msoc"></div>
     </div>
@@ -2533,8 +2533,8 @@
                                 <span data-i18n="cv.hero">Voir mon CV</span>
                             </summary>
                             <div class="cv-options">
-                                <a href="./FERHAN_Abdelali-.pdf" target="_blank" rel="noopener" hreflang="fr"><span data-i18n="cv.fr">CV en français</span><small>FR</small></a>
-                                <a href="./FERHAN_Abdelali_LatestVersion.pdf" target="_blank" rel="noopener" hreflang="en"><span data-i18n="cv.en">CV in English</span><small>EN</small></a>
+                                <a href="./New_CVS/FERHAN_Forum.pdf" target="_blank" rel="noopener" hreflang="fr"><span data-i18n="cv.fr">CV en français</span><small>FR</small></a>
+                                <a href="./New_CVS/FERHAN_Fo_EN.pdf" target="_blank" rel="noopener" hreflang="en"><span data-i18n="cv.en">CV in English</span><small>EN</small></a>
                             </div>
                         </details>
                         <a class="btn btn-ghost" href="#projects" data-route="projects"><span data-i18n="hero.projects">Voir mes projets</span>
@@ -2602,7 +2602,7 @@
                     <div class="fact reveal"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18v13H3zM8 7V4h8v3"/></svg></span>
                         <div>
                             <div class="k" data-i18n="about.goalKey">Objectif</div>
-                            <div class="v" data-i18n="about.goalValue">Stage PFA — Full-Stack / DevOps / IA</div>
+                            <div class="v" data-i18n="about.goalValue">Stage PFE — Génie logiciel / Full-Stack / DevOps</div>
                         </div>
                     </div>
                     <div class="fact reveal"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></span>
@@ -2673,7 +2673,7 @@
         <section class="view" id="view-contact" data-view="contact">
             <div class="eyebrow reveal" data-i18n="contact.eyebrow">Restons en contact</div>
             <h2 class="section-title reveal" data-i18n="contact.title">Travaillons ensemble</h2>
-            <p class="section-lead reveal" data-i18n="contact.lead">Disponible pour un stage PFA. Pour me joindre rapidement, envoyez-moi un email.</p>
+            <p class="section-lead reveal" data-i18n="contact.lead">À la recherche d’un stage PFE de 6 mois à partir de février 2027. Pour me joindre rapidement, envoyez-moi un email.</p>
             <div class="contact-grid">
                 <div class="contact-links" id="contactLinks"></div>
                 <form id="contactForm">
@@ -2944,6 +2944,12 @@
             images: []
         }];
         const EXPERIENCE = [{
+            when: "Août – Oct. 2026",
+            title: "Stagiaire — Architecture Smart WMS",
+            org: "Smart Automation Technologies (SAT), Tanger",
+            points: ["Analyse comparative de trois plateformes WMS — Manhattan Active, SAP EWM et Oracle WMS — afin d’identifier leurs capacités et bonnes pratiques.", "Conception d’une architecture Smart WMS modulaire en sept domaines et classification de 58 cas d’usage selon leur priorité fonctionnelle.", "Modélisation de la solution avec cinq diagrammes UML et définition de l’intégration de quatre capacités d’IA : prévision, slotting, réapprovisionnement et détection d’anomalies."],
+            stack: ["WMS", "Architecture logicielle", "UML", "IA"]
+        }, {
             when: "Mai 2026 – Présent",
             title: "Analyste SIG – Freelance",
             org: "Données géospatiales (sur site)",
@@ -3339,7 +3345,7 @@ const contactLinks=document.getElementById('contactLinks');
 
 function renderProfileData(){
   expTL.innerHTML="";
-  EXPERIENCE.forEach(x=>{const pts=x.points.map(p=>`<li>${escapeHtml(localize(p))}</li>`).join("");const st=x.stack&&x.stack.length?`<div class="stack">${x.stack.map(s=>`<span>${escapeHtml(s)}</span>`).join("")}</div>`:"";expTL.appendChild(el(`<div class="tl-item reveal"><span class="node"></span><div class="when">${escapeHtml(localize(x.when))}</div><h3>${escapeHtml(localize(x.title))}</h3><div class="org">${escapeHtml(localize(x.org))}</div><ul>${pts}</ul>${st}</div>`));});
+  EXPERIENCE.forEach(x=>{const pts=x.points.map(p=>`<li>${escapeHtml(localize(p))}</li>`).join("");const st=x.stack&&x.stack.length?`<div class="stack">${x.stack.map(s=>`<span>${escapeHtml(localize(s))}</span>`).join("")}</div>`:"";expTL.appendChild(el(`<div class="tl-item reveal"><span class="node"></span><div class="when">${escapeHtml(localize(x.when))}</div><h3>${escapeHtml(localize(x.title))}</h3><div class="org">${escapeHtml(localize(x.org))}</div><ul>${pts}</ul>${st}</div>`));});
 
   eduTL.innerHTML="";
   EDUCATION.forEach(x=>{const pts=x.points.map(p=>`<li>${escapeHtml(localize(p))}</li>`).join("");eduTL.appendChild(el(`<div class="tl-item reveal"><span class="node"></span><div class="when">${escapeHtml(localize(x.when))}</div><h3>${escapeHtml(localize(x.title))}</h3><div class="org">${escapeHtml(localize(x.org))}</div><ul>${pts}</ul></div>`));});
